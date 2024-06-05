@@ -1,9 +1,10 @@
 import "./App.css";
+import Loging_page from "./pages/Loging_page";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Hello World</header>
+      <Loging_page />
     </div>
   );
 }
