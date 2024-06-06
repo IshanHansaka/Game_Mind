@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/Loging_navbar.css'
+//import '../styles/Loging_navbar.css'
 
 export default function Loging_navbar() {
   return (
