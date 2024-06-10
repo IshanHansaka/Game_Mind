@@ -1,0 +1,191 @@
+.logging {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.logging .container {
+  background-color: #ffffff;
+  display: flex;
+  width: 1216px;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.logging .overlap {
+  background-color: #ffffff;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  width: 1216px;
+}
+
+.logging .navbar {
+  align-items: center;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  left: 312px;
+  position: absolute;
+  top: 0;
+  width: 690px;
+}
+
+.logging .navbar a {
+  text-decoration: none;
+}
+
+.logging .text-wrapper {
+  color: #000000;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+  width: 150px;
+}
+
+.logging .game-mind {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+  height: 100px;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 312px;
+}
+
+.logging .text-wrapper-2 {
+  color: #304674;
+  font-family: "Inter-Black", Helvetica;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+}
+
+.logging .sign-in {
+  align-items: center;
+
+  border-radius: 20px;
+  display: flex;
+  gap: 10px;
+  height: 50px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px 10px;
+  position: absolute;
+  top: 25px;
+  right: 0;
+  width: 200px;
+}
+
+.logging button .text-wrapper-3 {
+  background-color: #304674;
+  color: #ffffff;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: -2px;
+  margin-top: -4px;
+  position: relative;
+  text-align: center;
+  width: fit-content;
+}
+
+.logging .overlap-group {
+  height: 625px;
+  position: absolute;
+  margin-top: 40px;
+  width: 1216px;
+}
+
+.logging .clip-online {
+  height: 625px;
+  left: 592px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 624px;
+}
+
+.logging .register {
+  align-items: center;
+  background-color: #304674;
+  border-radius: 20px;
+  display: flex;
+  gap: 10px;
+  height: 50px;
+  justify-content: center;
+  left: 424px;
+  overflow: hidden;
+  padding: 10px 60px;
+  position: absolute;
+  top: 507px;
+  width: 200px;
+}
+
+.logging .text-wrapper-4 {
+  color: #ffffff;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: -2px;
+  margin-left: -8.5px;
+  margin-right: -8.5px;
+  margin-top: -4px;
+  position: relative;
+  text-align: center;
+  width: fit-content;
+}
+
+.logging .lets-begin-the {
+  color: transparent;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 72px;
+  font-weight: 400;
+  height: 205px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 65px;
+  width: 800px;
+}
+
+.logging .span {
+  color: #000000;
+}
+
+.logging .text-wrapper-5 {
+  color: #b2cbde;
+}
+
+.logging .text-wrapper-6 {
+  color: #1d72d8;
+}
+
+.logging .the-road-to-success {
+  color: #000000;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 312px;
+  width: 624px;
+}
