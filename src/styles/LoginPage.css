@@ -1,0 +1,14 @@
+.overlap {
+  background-color: #ffffff;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  width: 1216px;
+}
+
+.overlap-group {
+  height: 625px;
+  position: absolute;
+  margin-top: 40px;
+  width: 1216px;
+}

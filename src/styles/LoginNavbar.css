@@ -1,0 +1,73 @@
+.navbar {
+  align-items: center;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  left: 312px;
+  position: absolute;
+  top: 0;
+  width: 690px;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.text-wrapper {
+  color: #000000;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: center;
+  width: 100px;
+}
+
+.game-mind {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+  height: 100px;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 312px;
+}
+
+.text-wrapper-2 {
+  color: #304674;
+  font-family: "Inter-Black", Helvetica;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+}
+
+.sign-in {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  top: 0;
+  right: 0;
+}
+
+.text-wrapper-3 {
+  background-color: #304674;
+  border: none;
+  color: #ffffff;
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  position: relative;
+}
