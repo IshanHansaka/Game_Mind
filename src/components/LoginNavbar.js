@@ -3,7 +3,7 @@ import "../styles/LoginNavbar.css";
 
 export default function LoginNavbar() {
   return (
-    <div>
+    <>
       <div className="navbar">
         <a href="#" className="text-wrapper">
           Home
@@ -25,6 +25,6 @@ export default function LoginNavbar() {
       <div className="sign-in">
         <button className="text-wrapper-3">Sign in</button>
       </div>
-    </div>
+    </>
   );
 }
