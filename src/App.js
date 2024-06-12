@@ -7,7 +7,7 @@ function App() {
     <>
       <div className="app">
         <div className="container">
-          <LoginPage />
+          <Dashboard />
         </div>
       </div>
     </>
