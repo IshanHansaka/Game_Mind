@@ -4,7 +4,7 @@ import LoginPageImage from "../assets/images/LoginPageImage.png";
 
 export default function LoginHome() {
   return (
-    <div className="overlap-group">
+    <>
       <img src={LoginPageImage} className="clip-online" alt="Login page" />
       <div className="register">
         <button className="text-wrapper-4">Register</button>
@@ -25,6 +25,6 @@ export default function LoginHome() {
         stretches can be tough. That&#39;s where the Pomodoro Technique comes
         in!
       </p>
-    </div>
+    </>
   );
 }
