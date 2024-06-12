@@ -9,7 +9,7 @@ import Ellipse2 from "../assets/images/ellipse 2.png";
 
 export default function Dashboard() {
   return (
-    <div className="home-dashboad">
+    <div className="home-dashboard">
       <div className="div">
         <div className="outter-overlap" />
         <div className="overlap">
