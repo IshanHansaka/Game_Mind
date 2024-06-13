@@ -3,6 +3,8 @@ import "../styles/Dashboard.css";
 import DashboardNavbar from "./DashboardNavbar";
 import DashboardMenu from "./DashboardMenu";
 import DashboardHome from "./DashboardHome";
+import DashboardStatus from "./DashboardStatus";
+import DashPomodoro from "./DashPomodoro.js";
 
 export default function Dashboard() {
   return (
@@ -13,11 +15,11 @@ export default function Dashboard() {
           <DashboardNavbar />
         </div>
         <div className="overlap-group-2">
-          <DashboardMenu />
+          <DashboardStatus />
         </div>
         <div className="outter-overlap-group"></div>
         <div className="overlap-group">
-          <DashboardHome />
+          <DashPomodoro />
         </div>
       </div>
     </div>
