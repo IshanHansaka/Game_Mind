@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/Dashboard.css";
 import DashboardNavbar from "./DashboardNavbar";
 import DashboardMenu from "./DashboardMenu";
-
 import DashboardHome from "./DashboardHome";
 
 export default function Dashboard() {
