@@ -1,0 +1,149 @@
+.pomo-rectangle-2 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 8px 8px 19.9px 1px #00000040;
+  height: 400px;
+  top: 120px;
+  position: absolute;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scale: 1.1;
+}
+.pomo-settings {
+  width: 800px;
+  height: 172px;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+.pomo-text-wrapper-3 {
+  color: #000000;
+  display: flex;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 36px;
+  font-weight: 400;
+  width: 800px;
+  height: 72px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.pomo-text-wrapper-3 p{
+  margin: 0;
+}
+.pomo-rectangle-3 {
+  display: flex;
+  align-items: center;
+  background-color: #d8e1e8;
+  border-radius: 20px;
+  box-shadow: 8px 8px 19.9px 1px #00000040;
+  height: 115px;
+  width: 292px;
+}
+
+.pomo-text-wrapper-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 46px;
+  font-weight: 400;
+  height: 116px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  width: 225px;
+}
+
+.pomo-text-wrapper-2 p {
+  margin: 0;
+}
+
+.up-down {
+  width: 51px;
+}
+
+.pomo-down {
+  height: 47px;
+  left: 873px;
+  object-fit: cover;
+  width: 51px;
+}
+
+.pomo-up {
+  height: 47px;
+  left: 873px;
+  object-fit: cover;
+  width: 51px;
+}
+
+.up-down button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.38s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.up-down button:hover {
+  transform: scale(1.155);
+}
+
+.pomo-rectangle-4 {
+  display: flex;
+  background-color: #d8e1e8;
+  border-radius: 20px;
+  box-shadow: 8px 8px 19.9px 1px #00000040;
+  height: 115px;
+  width: 292px;
+  justify-content: center;
+  align-items: center;
+}
+
+.pomo-rectangle-4 button {
+  height: 115px;
+  width: 292px;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  cursor: pointer;;
+}
+
+.pomo-text-wrapper-4 {
+  color: #000000;
+  font-family: "Inter-Medium", Helvetica;
+  font-size: 46px;
+  font-weight: 500;
+}
+
+.pomo-p {
+  display: flex;
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  height: 156px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  width: 800px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.pomo-p p {
+  width: 740px;
+  margin: 0;
+}
+
+.pomo-rectangle-4 {
+  transition: transform 0.38s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.pomo-rectangle-4:hover {
+  transform: scale(1.05);
+}
