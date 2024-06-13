@@ -45,6 +45,8 @@
   position: absolute;
   top: 255px;
   width: 1216px;
+  display: flex;
+  justify-content: center;
 }
 
 .home-dashboard .overlap-group-2 {
