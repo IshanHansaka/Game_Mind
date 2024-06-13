@@ -1,0 +1,553 @@
+.process-monitoring {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .process-monitoring .div {
+    background-color: #ffffff;
+    height: 1024px;
+    position: relative;
+    width: 1920px;
+  }
+  
+  .process-monitoring .overlap {
+    background-color: #304674;
+    height: 100px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1920px;
+  }
+  
+  .process-monitoring .game-mind {
+    align-items: center;
+    display: flex;
+    gap: 15px;
+    height: 100px;
+    justify-content: center;
+    left: 352px;
+    position: absolute;
+    top: 0;
+    width: 312px;
+  }
+  
+  .process-monitoring .text-wrapper {
+    color: #ffffff;
+    font-family: "Inter-Black", Helvetica;
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    width: fit-content;
+  }
+  
+  .process-monitoring .vector {
+    height: 52px;
+    left: 1516px;
+    position: absolute;
+    top: 24px;
+    width: 52px;
+  }
+  
+  .process-monitoring .overlap-group {
+    background-color: #d8e1e8;
+    height: 825px;
+    left: 0;
+    position: absolute;
+    top: 199px;
+    width: 1920px;
+  }
+  
+  .process-monitoring .overlap-2 {
+    height: 89px;
+    left: 560px;
+    position: absolute;
+    top: 694px;
+    width: 800px;
+  }
+  
+  .process-monitoring .rectangle {
+    background-color: #ffffff;
+    border-radius: 15px;
+    height: 86px;
+    left: 0;
+    position: absolute;
+    top: 1px;
+    width: 800px;
+  }
+  
+  .process-monitoring .text-wrapper-2 {
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 28px;
+    font-weight: 400;
+    height: 86px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 383px;
+  }
+  
+  .process-monitoring .text-wrapper-3 {
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 28px;
+    font-weight: 400;
+    height: 86px;
+    left: 413px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 283px;
+  }
+  
+  .process-monitoring .text-wrapper-4 {
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 28px;
+    font-weight: 400;
+    height: 89px;
+    left: 384px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 32px;
+  }
+  
+  .process-monitoring .group {
+    background-color: #ffffff;
+    border-radius: 15px;
+    height: 644px;
+    left: 457px;
+    position: absolute;
+    top: 27px;
+    width: 1008px;
+  }
+  
+  .process-monitoring .line-chart {
+    height: 606px;
+    position: relative;
+    top: 22px;
+    width: 1036px;
+  }
+  
+  .process-monitoring .overlap-group-2 {
+    height: 521px;
+    left: 124px;
+    position: absolute;
+    top: 11px;
+    width: 884px;
+  }
+  
+  .process-monitoring .img {
+    height: 521px;
+    left: 6px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  
+  .process-monitoring .x-axis-grid {
+    height: 521px;
+    left: 151px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  
+  .process-monitoring .x-axis-grid-2 {
+    height: 521px;
+    left: 296px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  
+  .process-monitoring .x-axis-grid-3 {
+    height: 521px;
+    left: 441px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  
+  .process-monitoring .x-axis-grid-4 {
+    height: 521px;
+    left: 585px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  
+  .process-monitoring .x-axis-grid-5 {
+    height: 521px;
+    left: 730px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  
+  .process-monitoring .x-axis-grid-6 {
+    height: 521px;
+    left: 877px;
+    position: absolute;
+    top: 0;
+    width: 1px;
+  }
+  
+  .process-monitoring .y-axis-grid {
+    height: 1px;
+    left: 7px;
+    object-fit: cover;
+    position: absolute;
+    top: 391px;
+    width: 869px;
+  }
+  
+  .process-monitoring .y-axis-grid-2 {
+    height: 1px;
+    left: 7px;
+    object-fit: cover;
+    position: absolute;
+    top: 262px;
+    width: 869px;
+  }
+  
+  .process-monitoring .y-axis-grid-3 {
+    height: 1px;
+    left: 7px;
+    object-fit: cover;
+    position: absolute;
+    top: 130px;
+    width: 869px;
+  }
+  
+  .process-monitoring .line {
+    height: 288px;
+    left: 7px;
+    position: absolute;
+    top: 142px;
+    width: 871px;
+  }
+  
+  .process-monitoring .marker {
+    height: 15px;
+    left: 0;
+    position: absolute;
+    top: 423px;
+    width: 15px;
+  }
+  
+  .process-monitoring .marker-2 {
+    height: 15px;
+    left: 143px;
+    position: absolute;
+    top: 293px;
+    width: 15px;
+  }
+  
+  .process-monitoring .marker-3 {
+    height: 15px;
+    left: 289px;
+    position: absolute;
+    top: 135px;
+    width: 15px;
+  }
+  
+  .process-monitoring .marker-4 {
+    height: 15px;
+    left: 434px;
+    position: absolute;
+    top: 213px;
+    width: 15px;
+  }
+  
+  .process-monitoring .marker-5 {
+    height: 15px;
+    left: 579px;
+    position: absolute;
+    top: 384px;
+    width: 15px;
+  }
+  
+  .process-monitoring .marker-6 {
+    height: 15px;
+    left: 724px;
+    position: absolute;
+    top: 174px;
+    width: 15px;
+  }
+  
+  .process-monitoring .marker-7 {
+    height: 15px;
+    left: 869px;
+    position: absolute;
+    top: 280px;
+    width: 15px;
+  }
+  
+  .process-monitoring .x-axis-wrapper {
+    background-image: url(./y-axis-grid.svg);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 1px;
+    left: 132px;
+    position: absolute;
+    top: 532px;
+    width: 869px;
+  }
+  
+  .process-monitoring .x-axis {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 869px;
+  }
+  
+  .process-monitoring .y-axis-grid-4 {
+    height: 1px;
+    left: 132px;
+    object-fit: cover;
+    position: absolute;
+    top: 10px;
+    width: 869px;
+  }
+  
+  .process-monitoring .text-wrapper-5 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 103px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 547px;
+    width: 56px;
+  }
+  
+  .process-monitoring .text-wrapper-6 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 248px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 547px;
+    width: 56px;
+  }
+  
+  .process-monitoring .text-wrapper-7 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 393px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 547px;
+    width: 56px;
+  }
+  
+  .process-monitoring .text-wrapper-8 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 538px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 547px;
+    width: 56px;
+  }
+  
+  .process-monitoring .text-wrapper-9 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    left: 529px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 584px;
+    white-space: nowrap;
+    width: 73px;
+  }
+  
+  .process-monitoring .text-wrapper-10 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 251px;
+    white-space: nowrap;
+    width: 73px;
+  }
+  
+  .process-monitoring .text-wrapper-11 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 683px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 547px;
+    width: 56px;
+  }
+  
+  .process-monitoring .text-wrapper-12 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 828px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 547px;
+    width: 56px;
+  }
+  
+  .process-monitoring .text-wrapper-13 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 945px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 547px;
+    width: 56px;
+  }
+  
+  .process-monitoring .text-wrapper-14 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 103px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: right;
+    top: 521px;
+    white-space: nowrap;
+    width: 11px;
+  }
+  
+  .process-monitoring .text-wrapper-15 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 103px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: right;
+    top: 391px;
+    white-space: nowrap;
+    width: 11px;
+  }
+  
+  .process-monitoring .text-wrapper-16 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 103px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: right;
+    top: 261px;
+    white-space: nowrap;
+    width: 11px;
+  }
+  
+  .process-monitoring .text-wrapper-17 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 103px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: right;
+    top: 132px;
+    white-space: nowrap;
+    width: 11px;
+  }
+  
+  .process-monitoring .text-wrapper-18 {
+    color: #14213d;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 92px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: right;
+    top: 0;
+    white-space: nowrap;
+    width: 22px;
+  }
+  
+  .process-monitoring .dashboard-process-wrapper {
+    background-color: #ffffff;
+    height: 99px;
+    left: 0;
+    position: absolute;
+    top: 100px;
+    width: 1920px;
+  }
+  
+  .process-monitoring .dashboard-process {
+    color: #000000;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    left: 352px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 26px;
+    width: 674px;
+  }
+  
