@@ -5,11 +5,7 @@ import LoginPage from "./components/LoginPage.js";
 function App() {
   return (
     <>
-      <div className="app">
-        <div className="container">
-          <Dashboard />
-        </div>
-      </div>
+      <Dashboard />
     </>
   );
 }
