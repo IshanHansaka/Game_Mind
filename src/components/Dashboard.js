@@ -5,6 +5,7 @@ import DashboardMenu from "./DashboardMenu";
 import DashboardHome from "./DashboardHome";
 import DashboardStatus from "./DashboardStatus";
 import DashPomodoro from "./DashPomodoro.js";
+import DashProgress from "./DashProgress.js";
 
 export default function Dashboard() {
   return (
@@ -19,7 +20,7 @@ export default function Dashboard() {
         </div>
         <div className="outter-overlap-group"></div>
         <div className="overlap-group">
-          <DashPomodoro />
+          <DashProgress />
         </div>
       </div>
     </div>
