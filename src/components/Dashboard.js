@@ -6,6 +6,9 @@ import DashboardHome from "./DashboardHome";
 import DashboardStatus from "./DashboardStatus";
 import DashPomodoro from "./DashPomodoro.js";
 import DashProgress from "./DashProgress.js";
+import Dancing from "./Dancing.js";
+import Memory from "./Memory.js";
+import Buzziwre from "./Buzzwire.js";
 
 export default function Dashboard() {
   return (
@@ -20,7 +23,7 @@ export default function Dashboard() {
         </div>
         <div className="outter-overlap-group"></div>
         <div className="overlap-group">
-          <DashProgress />
+          <Buzziwre />
         </div>
       </div>
     </div>
