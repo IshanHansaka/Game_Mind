@@ -1,18 +1,15 @@
-import "./App.css";
-import Dashboard from "./components/Dashboard.js";
-import LoginPage from "./components/LoginPage.js";
-import DashPomodoro from "./components/DashPomodoro.js";
-import Register from "./components/Register.js";
-import Signin from "./components/Signin.js";
-import DashProgress from "./components/DashProgress.js";
-import Dancing from "./components/Dancing.js";
-import Memory from "./components/Memory.js";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard.js";
+
 
 function App() {
   return (
-    <>
-      <Dashboard />
-    </>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
 
