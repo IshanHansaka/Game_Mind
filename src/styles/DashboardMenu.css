@@ -1,0 +1,87 @@
+.home-dashboard .rectangle {
+  background-color: #ffffff;
+  height: 155px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1216px;
+}
+
+.home-dashboard .text-wrapper-8 {
+  color: #000000;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 21px;
+  width: 384px;
+}
+
+.home-dashboard .text-wrapper-9 {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 91px;
+  width: 340px;
+}
+
+.home-dashboard .text-wrapper-10 {
+  color: #000000;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 32px;
+  font-weight: 700;
+  height: 39px;
+  left: 1026px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 31px;
+  width: 118px;
+}
+
+.home-dashboard .element-jan {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  height: 72px;
+  left: 1008px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 62px;
+  width: 229px;
+}
+
+.home-dashboard .text-wrapper-11 {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.home-dashboard .text-wrapper-12 {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  height: 72px;
+  left: 832px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 91px;
+  width: 145px;
+}

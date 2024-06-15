@@ -1,19 +1,18 @@
-.navbar {
+.login .navbar {
   align-items: center;
   display: flex;
   height: 100px;
   justify-content: center;
   left: 312px;
   position: absolute;
-  top: 0;
   width: 690px;
 }
 
-.navbar a {
+.login .navbar a {
   text-decoration: none;
 }
 
-.text-wrapper {
+.login .text-wrapper {
   color: #000000;
   font-family: "Poppins-Regular", Helvetica;
   font-size: 24px;
@@ -25,19 +24,16 @@
   width: 100px;
 }
 
-.game-mind {
+.login .game-mind {
   align-items: center;
   display: flex;
   gap: 15px;
   height: 100px;
   justify-content: center;
-  left: 0;
-  position: absolute;
-  top: 0;
   width: 312px;
 }
 
-.text-wrapper-2 {
+.login .text-wrapper-2 {
   color: #304674;
   font-family: "Inter-Black", Helvetica;
   font-size: 48px;
@@ -48,7 +44,7 @@
   width: fit-content;
 }
 
-.sign-in {
+.login .sign-in {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -59,7 +55,7 @@
   right: 0;
 }
 
-.text-wrapper-3 {
+.login .text-wrapper-3 {
   background-color: #304674;
   border: none;
   color: #ffffff;

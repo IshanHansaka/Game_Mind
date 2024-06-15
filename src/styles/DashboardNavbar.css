@@ -1,0 +1,30 @@
+.home-dashboard .game-mind-0 {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+  height: 100px;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 312px;
+}
+
+.home-dashboard .text-wrapper-0 {
+  color: #ffffff;
+  font-family: "Inter-Black", Helvetica;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: fit-content;
+}
+
+.home-dashboard .vector {
+  height: 52px;
+  left: 1164px;
+  position: absolute;
+  top: 24px;
+  width: 52px;
+}

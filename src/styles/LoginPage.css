@@ -1,14 +1,28 @@
-.overlap {
+.login {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+.login .container {
+  background-color: #ffffff;
+  display: flex;
+  width: 1216px;
+  height: 100vh;
+  justify-content: center;
+}
+.login .overlap {
   background-color: #ffffff;
   height: 100px;
   position: absolute;
-  top: 0;
   width: 1216px;
 }
 
-.overlap-group {
+.login .overlap-group {
   height: 625px;
   position: absolute;
-  margin-top: 40px;
+  top: 100px;
   width: 1216px;
+  flex-grow: 1;
 }
