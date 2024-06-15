@@ -3,7 +3,7 @@ import "../styles/DashPomodoro.css";
 import Down from "../assets/images/down 1.png";
 import Up from "../assets/images/up 1.png";
 
-export default function DashboardPomodoro() {
+export default function DashPomodoro() {
   return (
     <>
       <div className="pomo-rectangle-2">
