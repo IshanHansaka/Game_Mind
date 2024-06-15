@@ -1,0 +1,21 @@
+.home-dashboard .dashboard-pomodoro {
+  color: #000000;
+  font-family: "Inter-Bold", Helvetica;
+  font-size: 36px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 54px;
+  width: 756px;
+}
+
+.dashboard-pomodoro .status-span {
+  color: #000000;
+}
+
+.dashboard-pomodoro .status-span:hover {
+  color: #21479a;
+  cursor: pointer;
+}

@@ -5,13 +5,15 @@ import "../styles/LoginPage.css";
 
 export default function LoginPage() {
   return (
-    <>
-      <div className="overlap">
-        <LoginNavbar />
+    <div className="login">
+      <div className="container">
+        <div className="overlap">
+          <LoginNavbar />
+        </div>
+        <div className="overlap-group">
+          <LoginHome />
+        </div>
       </div>
-      <div className="overlap-group">
-        <LoginHome />
-      </div>
-    </>
+    </div>
   );
 }

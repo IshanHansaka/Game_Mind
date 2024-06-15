@@ -1,4 +1,4 @@
-.clip-online {
+.login .clip-online {
   left: 592px;
   object-fit: cover;
   position: absolute;
@@ -7,7 +7,7 @@
   height: 625px;
 }
 
-.register {
+.login .register {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -19,7 +19,7 @@
   overflow: hidden;
 }
 
-.text-wrapper-4 {
+.login .text-wrapper-4 {
   background-color: #304674;
   border-radius: 20px;
   border: none;
@@ -34,7 +34,7 @@
   height: 50px;
 }
 
-.lets-begin-the {
+.login .lets-begin-the {
   color: transparent;
   font-family: "Poppins-Regular", Helvetica;
   font-size: 72px;
@@ -48,19 +48,19 @@
   width: 800px;
 }
 
-.span {
+.login .span {
   color: #000000;
 }
 
-.text-wrapper-5 {
+.login .text-wrapper-5 {
   color: #b2cbde;
 }
 
-.text-wrapper-6 {
+.login .text-wrapper-6 {
   color: #1d72d8;
 }
 
-.the-road-to-success {
+.login .the-road-to-success {
   color: #000000;
   font-family: "Poppins-Regular", Helvetica;
   font-size: 24px;
