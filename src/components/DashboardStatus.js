@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "../styles/DashboardStatus.css";
 
 export default function DashboardStatus({ onDashClick, currentComponent }) {
