@@ -76,11 +76,10 @@
 .home-dashboard .span {
   text-decoration: underline;
 }
-.home-dashboard .overlap-2 a, .overlap-4 a {
-  color: #000000;
-}
-.home-dashboard .overlap-2 a:hover, .overlap-4 a:hover {
+
+.home-dashboard .overlap-2 .span:hover, .overlap-4 .span:hover {
   color: #21479a;
+  cursor: pointer;
 }
 
 .home-dashboard .text-wrapper-04 {
@@ -220,4 +219,5 @@
 
 .home-dashboard .game-tiles:hover {
   transform: scale(1.04);
+  cursor: pointer;
 }
