@@ -17,6 +17,7 @@ export default function DashboardStatus({ onDashClick, currentComponent }) {
         return "";
     }
   };
+
   return (
     <>
       <div className="dashboard-pomodoro">
