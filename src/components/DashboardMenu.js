@@ -2,10 +2,13 @@ import React from "react";
 import "../styles/DashboardMenu.css";
 
 export default function DashboardMenu() {
+  // Retrieve the name from local storage, default to "John" if not found
+  const userName = localStorage.getItem("name") || "John";
+
   return (
     <>
       <div className="rectangle" />
-      <div className="text-wrapper-8">Hello, John !</div>
+      <div className="text-wrapper-8">Hello, <span>{userName}</span>!</div>
       <p className="text-wrapper-9">Nice to see you again</p>
       <div className="text-wrapper-10">Friday</div>
       <p className="element-jan">
