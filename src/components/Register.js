@@ -12,7 +12,7 @@ export default function Register({ onSignin }) {
       if (user) {
         setCurrentUser(user.email);
         localStorage.setItem("email", user.email);
-        localStorage.setItem("name", user.displayName);
+        localStorage.setItem("name", getFirstName(user.displayName));
         localStorage.setItem("profilepic", user.photoURL);
         window.location.reload();
       } else {
@@ -34,7 +34,7 @@ export default function Register({ onSignin }) {
       .then((data) => {
         setCurrentUser(data.user.email);
         localStorage.setItem("email", data.user.email);
-        localStorage.setItem("name", data.user.displayName);
+        localStorage.setItem("name", getFirstName(data.user.displayName));
         localStorage.setItem("profilepic", data.user.photoURL);
         window.location.reload();
       })
@@ -43,6 +43,10 @@ export default function Register({ onSignin }) {
       });
   };
 
+  const getFirstName = (fullName) => {
+    const parts = fullName.split(" ");
+    return parts[0]; // Return the first part (first name)
+  };
   return (
     <div className="reg-container">
       <div className="reg-rectangle">
