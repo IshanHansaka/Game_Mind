@@ -5,16 +5,16 @@ export default function LoginNavbar({onSignin}) {
   return (
     <>
       <div className="navbar">
-        <a href="#" className="text-wrapper">
+        <a className="text-wrapper">
           Home
         </a>
-        <a href="#" className="text-wrapper">
+        <a className="text-wrapper">
           About
         </a>
-        <a href="#" className="text-wrapper">
+        <a className="text-wrapper">
           Contact
         </a>
-        <a href="#" className="text-wrapper">
+        <a className="text-wrapper">
           FAQ
         </a>
       </div>
