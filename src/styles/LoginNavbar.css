@@ -66,4 +66,10 @@
   font-size: 24px;
   font-weight: 400;
   position: relative;
+  transition: transform 0.38s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.login .text-wrapper-3:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
