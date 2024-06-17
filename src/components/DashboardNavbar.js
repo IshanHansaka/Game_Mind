@@ -1,6 +1,6 @@
 import React from "react";
 import { signOut } from "firebase/auth";
-import { auth } from "../firebase/firebaseConfig.js"
+import { auth } from "../firebase/firebaseConfig.js";
 import ProfilePicture from "../assets/images/profilepicture.png";
 import "../styles/DashboardNavbar.css";
 
@@ -15,6 +15,9 @@ export default function DashboardNavbar() {
         console.log(error);
       });
   };
+
+  const profilePicUrl = localStorage.getItem("profilepic") || ProfilePicture;
+
   return (
     <>
       <div className="game-mind-0">
@@ -27,7 +30,7 @@ export default function DashboardNavbar() {
         tabIndex={0}
         onClick={handleSignout}
       >
-        <img className="vector" alt="Vector" src={ProfilePicture} />
+        <img className="vector" alt="Profile" src={profilePicUrl} />
       </div>
     </>
   );
