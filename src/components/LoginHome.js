@@ -2,12 +2,12 @@ import React from "react";
 import "../styles/LoginHome.css";
 import LoginPageImage from "../assets/images/LoginPageImage.png";
 
-export default function LoginHome() {
+export default function LoginHome({onRegister}) {
   return (
     <>
       <img src={LoginPageImage} className="clip-online" alt="Login page" />
       <div className="register">
-        <button className="text-wrapper-4">Register</button>
+        <button className="text-wrapper-4" onClick={onRegister}>Register</button>
       </div>
       <p className="lets-begin-the">
         <span className="span">Lets begin the</span>
