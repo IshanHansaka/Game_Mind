@@ -116,11 +116,12 @@
   color: #242424;
 }
 
-.reg-text-wrapper-2 a {
+.reg-text-wrapper-2{
     text-decoration: none;
     color: #1d72d8;
 }
 
-.reg-text-wrapper-2 a:hover {
+.reg-text-wrapper-2:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
