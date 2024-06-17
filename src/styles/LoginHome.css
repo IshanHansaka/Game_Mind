@@ -14,9 +14,11 @@
   left: 424px;
   position: absolute;
   top: 507px;
-  width: 200px;
-  height: 50px;
+  width: 220px;
+  height: 70px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .login .text-wrapper-4 {
@@ -29,9 +31,14 @@
   font-weight: 400;
   position: relative;
   text-align: center;
-
   width: 200px;
   height: 50px;
+  transition: transform 0.38s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.login .text-wrapper-4:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .login .lets-begin-the {
