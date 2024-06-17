@@ -12,6 +12,11 @@
   text-decoration: none;
 }
 
+.login .navbar a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .login .text-wrapper {
   color: #000000;
   font-family: "Poppins-Regular", Helvetica;
