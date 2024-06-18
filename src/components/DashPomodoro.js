@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/DashPomodoro.css";
 import Down from "../assets/images/down 1.png";
 import Up from "../assets/images/up 1.png";
 
 export default function DashPomodoro() {
+  const [currentSession, setCurrentSession] = useState(0);
+
+  const handleSessionInc = () => {
+    setCurrentSession((prevSession) => prevSession + 1);
+  };
+
+  const handleSessionDec = () => {
+    setCurrentSession((prevSession) => (prevSession > 0 ? prevSession - 1 : 0));
+  };
+
+  const sessionHours = Math.floor(currentSession / 2);
+  const sessionMinutes = (currentSession % 2) * 30;
+
   return (
     <>
       <div className="pomo-rectangle-2">
@@ -14,15 +27,20 @@ export default function DashPomodoro() {
           <div className="pomo-rectangle-3">
             <div className="pomo-text-wrapper-2">
               <p>
-                <span className="pomo-hour">02</span> :{" "}
-                <span className="pomo-min">30</span>
+                <span className="pomo-hour">
+                  {sessionHours.toString().padStart(2, "0")}
+                </span>
+                :
+                <span className="pomo-min">
+                  {sessionMinutes.toString().padStart(2, "0")}
+                </span>
               </p>
             </div>
             <div className="up-down">
-              <button className="btn-up">
-                <img className="pomo-up" alt="Down" src={Up} />
+              <button className="btn-up" onClick={handleSessionInc}>
+                <img className="pomo-up" alt="Up" src={Up} />
               </button>
-              <button className="btn-down">
+              <button className="btn-down" onClick={handleSessionDec}>
                 <img className="pomo-down" alt="Down" src={Down} />
               </button>
             </div>
