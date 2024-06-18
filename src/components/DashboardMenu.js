@@ -13,19 +13,34 @@ export default function DashboardMenu() {
     return () => clearInterval(timer);
   }, []);
 
-  const options = { weekday: "long", year: "numeric", month: "short", day: "numeric" };
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  };
   const formattedDate = currentDate.toLocaleDateString("en-US", options);
-  const formattedTime = currentDate.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" });
+  const formattedTime = currentDate.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
   const day = currentDate.getDate();
-  const monthYear = currentDate.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+  const monthYear = currentDate.toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+  });
   const daySuffix = (day) => {
-    if (day > 3 && day < 21) return 'th';
+    if (day > 3 && day < 21) return "th";
     switch (day % 10) {
-      case 1: return "st";
-      case 2: return "nd";
-      case 3: return "rd";
-      default: return "th";
+      case 1:
+        return "st";
+      case 2:
+        return "nd";
+      case 3:
+        return "rd";
+      default:
+        return "th";
     }
   };
 
