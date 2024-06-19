@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import LoginPage from "./pages/LoginPage";
+import Test from "./components/Test.js";
+import Dancing from "./components/Dancing.js";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -20,7 +22,7 @@ function App() {
         <Route
           exact
           path="/"
-          element={currentUser ? <Dashboard /> : <LoginPage />}
+          element={<Dashboard />}
         />
       </Routes>
     </Router>
