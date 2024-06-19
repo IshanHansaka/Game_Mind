@@ -1,10 +1,13 @@
 import React from "react";
 import "../styles/Dancing.css";
+
 export default function Dancing() {
   return (
     <div className="danc-container">
       <div className="danc-rectangle-2">
-        <div className="danc-rectangle-3" />
+        <div className="danc-rectangle-3">
+             
+        </div>
         <div className="danc-rectangle-4">
           <div className="danc-div-wrapper">
             <button className="danc-startbtn">

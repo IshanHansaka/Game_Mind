@@ -30,6 +30,7 @@
   line-height: normal;
   position: absolute;
   top: 91px;
+  margin: 0;
   width: 340px;
 }
 
@@ -39,7 +40,7 @@
   font-size: 32px;
   font-weight: 700;
   height: 39px;
-  left: 1026px;
+  left: 1053px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;

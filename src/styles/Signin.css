@@ -103,11 +103,12 @@
   color: #242424;
 }
 
-.sin-text-wrapper-2 a {
+.sin-text-wrapper-2 {
   text-decoration: none;
   color: #1d72d8;
 }
 
-.sin-text-wrapper-2 a:hover {
+.sin-text-wrapper-2:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
