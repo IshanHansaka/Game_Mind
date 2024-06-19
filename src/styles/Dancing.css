@@ -1,115 +1,134 @@
 .danc-container {
-    display: flex;
-    align-items: center;
-    width: 1216px;
-    height: 730px;
+  display: flex;
+  align-items: center;
+  width: 1216px;
+  height: 730px;
 }
 
 .danc-rectangle-2 {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 8px 8px 19.9px 1px #00000040;
-    height: 600px;
-    width: 1216px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 72px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 8px 8px 19.9px 1px #00000040;
+  height: 600px;
+  width: 1216px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 72px;
 }
 
 .danc-rectangle-3 {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 8px 8px 19.9px 1px #00000040;
-    height: 470px;
-    width: 624px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 8px 8px 19.9px 1px #00000040;
+  height: 470px;
+  width: 624px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.danc-rectangle-3 .up {
+    display: none;
+}
+
+.danc-rectangle-3 .down {
+    display: none;
+}
+
+.danc-rectangle-3 .left {
+    display: none;
+}
+
+.danc-rectangle-3 .right {
+    display: none;
 }
 
 .danc-rectangle-4 {
-    height: 350px;
-    width: 344px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  height: 350px;
+  width: 344px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .danc-div-wrapper {
-    height: 150px;
-    width: 343px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 150px;
+  width: 343px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .danc-startbtn {
-    background-color: #d8e1e8;
-    box-shadow: 8px 8px 19.9px 1px #00000040;
-    height: 69px;
-    width: 138px;
-    border: none;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    cursor: pointer;
-    transition: transform 0.38s cubic-bezier(0.25, 0.1, 0.25, 1);
+  background-color: #d8e1e8;
+  box-shadow: 8px 8px 19.9px 1px #00000040;
+  height: 69px;
+  width: 138px;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.38s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .danc-startbtn:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .danc-text-wrapper-2 {
-    color: #000000;
-    font-family: "Inter-Medium", Helvetica;
-    font-size: 32px;
-    font-weight: 500;
+  color: #000000;
+  font-family: "Inter-Medium", Helvetica;
+  font-size: 32px;
+  font-weight: 500;
 }
 
 .danc-score {
-    color: #000000;
-    font-family: "Inter-Regular", Helvetica;
-    font-size: 40px;
-    font-weight: 400;
-    height: 80px;
-    width: 343px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 40px;
+  font-weight: 400;
+  height: 80px;
+  width: 343px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
 }
 
 .danc-scoretitle {
-    margin: 0;
+  margin: 0;
 }
 .danc-text-wrapper-4 {
-    color: #000000;
-    font-family: "Inter-Regular", Helvetica;
-    font-size: 48px;
-    font-weight: 400;
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 48px;
+  font-weight: 400;
 }
 
 .danc-h-score {
-    color: #000000;
-    font-family: "Inter-Regular", Helvetica;
-    font-size: 40px;
-    font-weight: 400;
-    height: 80px;
-    width: 343px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 40px;
+  font-weight: 400;
+  height: 80px;
+  width: 343px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
 }
 
 .danc-h-scoretitle {
-    margin: 0;
+  margin: 0;
 }
 
 .danc-text-wrapper-5 {
-    color: #000000;
-    font-family: "Inter-Regular", Helvetica;
-    font-size: 48px;
-    font-weight: 400;
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 48px;
+  font-weight: 400;
 }
