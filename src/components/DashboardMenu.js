@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../styles/DashboardMenu.css";
 
 export default function DashboardMenu() {
-
   const [currentDate, setCurrentDate] = useState(new Date());
 
   useEffect(() => {
