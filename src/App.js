@@ -20,7 +20,7 @@ function App() {
         <Route
           exact
           path="/"
-          element={currentUser ? <Dashboard /> : <Dashboard />}
+          element={currentUser ? <Dashboard /> : <LoginPage />}
         />
       </Routes>
     </Router>
