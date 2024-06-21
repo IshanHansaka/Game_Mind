@@ -3,6 +3,7 @@ import "../styles/DashboardMenu.css";
 
 export default function DashboardMenu() {
   const userName = localStorage.getItem("name") || "John";
+  const firstName = userName.split(" ")[0];
 
   const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -48,7 +49,8 @@ export default function DashboardMenu() {
     <>
       <div className="rectangle" />
       <div className="text-wrapper-8">
-        Hello, <span>{userName}</span>!
+        Hello, <span>{ firstName }</span>!
+
       </div>
       <p className="text-wrapper-9">Nice to see you again</p>
       <div className="text-wrapper-10">{formattedDate.split(" ")[0]}</div>
