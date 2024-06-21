@@ -9,16 +9,21 @@ import {
   Legend,
 } from "recharts";
 import { db } from "../firebase/firebaseConfig";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, collectionGroup, getDocs } from "firebase/firestore";
 
 export default function ProgressChartArea() {
   const [salesData, setSalesData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, "salesData"));
-      const data = querySnapshot.docs.map((doc) => doc.data());
-      setSalesData(data);
+      const collectionRef = collection(db, "test");
+      try {
+        const snapshot = await getDocs(collectionRef);
+        const data = snapshot.docs.map((doc) => ({ ...doc.data() }));
+        setSalesData(data.reverse());
+      } catch (err) {
+        console.error("Error fetching data:", err.message);
+      }
     };
 
     fetchData();
