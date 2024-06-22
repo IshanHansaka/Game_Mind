@@ -18,28 +18,12 @@
   width: 240px;
 }
 
-.home-dashboard .ellipse {
-  height: 240px;
+.home-dashboard .analytics {
+  height: 200px;
   left: 5px;
   position: absolute;
   top: 0;
-  width: 235px;
-}
-
-.home-dashboard .text-wrapper-02 {
-  color: #304674;
-  font-family: "Comfortaa-Bold", Helvetica;
-  font-size: 48px;
-  font-weight: 700;
-  height: 54px;
-  left: 73px;
-  letter-spacing: 0;
-  line-height: normal;
-  position: absolute;
-  text-align: center;
-  top: 92px;
-  white-space: nowrap;
-  width: 94px;
+  width: 200px;
 }
 
 .home-dashboard .text-wrapper-03 {
@@ -60,7 +44,7 @@
 
 .home-dashboard .p {
   font-family: "Inter-Regular", Helvetica;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 400;
   height: 23px;
   left: 364px;
@@ -68,7 +52,7 @@
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 266px;
+  top: 240px;
   white-space: nowrap;
   width: 208px;
 }
