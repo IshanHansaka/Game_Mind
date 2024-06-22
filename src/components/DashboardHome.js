@@ -3,8 +3,6 @@ import "../styles/DashboardHome.css";
 import Memorygame from "../assets/images/memorygame.png";
 import Dancingpad from "../assets/images/dancingpad.png";
 import Buzzwire from "../assets/images/buzzwire.svg";
-import Ellipse1 from "../assets/images/ellipse 1.png";
-import Ellipse2 from "../assets/images/ellipse 2.png";
 import Analytics from "../assets/images/analytics.png";
 
 export default function DashboardHome({
