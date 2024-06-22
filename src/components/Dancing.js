@@ -17,6 +17,7 @@ export default function Dancing() {
 
     ws.onmessage = (message) => {
       console.log("Received: " + message.data);
+      setVisibleIndex(null);
     };
 
     ws.onerror = (error) => {
@@ -45,10 +46,10 @@ export default function Dancing() {
   };
 
   const polygons = [
-    { points: "200,50 350,350 50,350", className: "up" },
     { points: "50,200 350,50 350,350", className: "left" },
-    { points: "200,350 50,50 350,50", className: "down" },
     { points: "350,200 50,350 50,50", className: "right" },
+    { points: "200,50 350,350 50,350", className: "up" },
+    { points: "200,350 50,50 350,50", className: "down" },
   ];
   return (
     <div className="danc-container">
