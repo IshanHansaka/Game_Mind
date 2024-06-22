@@ -6,6 +6,7 @@ export default function Dancing() {
   const integers = [0, 1, 2, 3, 0, 2, 1, 3, 0, 1];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleIndex, setVisibleIndex] = useState(null);
+  const [currentMessage, setCurrentMessage] = useState(null);
 
   useEffect(() => {
     const ws = new WebSocket("ws://192.168.8.153:81");
@@ -17,7 +18,7 @@ export default function Dancing() {
 
     ws.onmessage = (message) => {
       console.log("Received: " + message.data);
-      setVisibleIndex(null);
+      setCurrentMessage(message.data); // Update currentMessage state
     };
 
     ws.onerror = (error) => {
@@ -32,6 +33,13 @@ export default function Dancing() {
       ws.close();
     };
   }, []);
+
+  useEffect(() => {
+    if (currentMessage !== null) {
+      sendRandomInteger();
+      setCurrentMessage(null); // Reset currentMessage after processing
+    }
+  }, [currentMessage]); // Only re-run when currentMessage changes
 
   const sendRandomInteger = () => {
     if (socket && socket.readyState === WebSocket.OPEN) {
@@ -51,6 +59,7 @@ export default function Dancing() {
     { points: "200,50 350,350 50,350", className: "up" },
     { points: "200,350 50,50 350,50", className: "down" },
   ];
+
   return (
     <div className="danc-container">
       <div className="danc-rectangle-2">
