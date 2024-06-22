@@ -3,7 +3,7 @@ import "../styles/Dancing.css";
 
 export default function Dancing() {
   const [socket, setSocket] = useState(null);
-  const integers = [3, 0, 2, 1, 0, 3, 0, 1, 2, 0, 2, 1, 0, 3, 0, 2, 1, 0, 3, 0, 1, 2, 0, 2, 1, 0, 3,];
+  const integers = [0, 1, 2, 3, 1, 2, 0, 3, 1, 2, 2, 3, 0, 1, 3, 0, 2, 1, 3, 0];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleIndex, setVisibleIndex] = useState(null);
   const [currentMessage, setCurrentMessage] = useState(null);
