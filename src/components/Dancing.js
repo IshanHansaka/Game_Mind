@@ -3,10 +3,11 @@ import "../styles/Dancing.css";
 
 export default function Dancing() {
   const [socket, setSocket] = useState(null);
-  const integers = [0, 1, 2, 3, 2, 1, 0, 3, 1, 2, 0, 3, 0, 1, 3, 0, 2, 1, 2, 0];
+  const integers = [3, 0, 2, 1, 0, 3, 0, 1, 2, 0, 2, 1, 0, 3, 0, 2, 1, 0, 3, 0, 1, 2, 0, 2, 1, 0, 3,];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleIndex, setVisibleIndex] = useState(null);
   const [currentMessage, setCurrentMessage] = useState(null);
+  const [currentScore, setCurrentScore] = useState(0);
 
   useEffect(() => {
     const ws = new WebSocket("ws://192.168.8.153:81");
@@ -18,6 +19,7 @@ export default function Dancing() {
 
     ws.onmessage = (message) => {
       console.log("Received: " + message.data);
+      setCurrentScore((prevScore) => prevScore + 1);
       setCurrentMessage(message.data); // Update currentMessage state
     };
 
@@ -82,7 +84,7 @@ export default function Dancing() {
           </div>
           <div className="danc-score">
             <p className="danc-scoretitle">Score&nbsp;&nbsp;&nbsp;&nbsp;:</p>
-            <span className="danc-text-wrapper-4">09</span>
+            <span className="danc-text-wrapper-4">{currentScore}</span>
           </div>
           <div className="danc-h-score">
             <p className="danc-h-scoretitle">H.Score:</p>
