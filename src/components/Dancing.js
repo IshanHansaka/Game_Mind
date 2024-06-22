@@ -8,7 +8,7 @@ export default function Dancing() {
   const [visibleIndex, setVisibleIndex] = useState(null);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://192.168.8.116:81");
+    const ws = new WebSocket("ws://192.168.8.153:81");
     setSocket(ws);
 
     ws.onopen = () => {
