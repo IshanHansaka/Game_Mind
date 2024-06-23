@@ -44,7 +44,7 @@ export default function ProgressChartArea() {
           />
           <CartesianGrid strokeDasharray="3 3" stroke="gray" />
           <Legend wrapperStyle={{ fontSize: "26px" }} />
-          <Bar dataKey="product1" stroke="#2563eb" fill="#3b82f6" />
+          <Bar dataKey="product1" stroke="#2563eb" fill="#304674" />
           <Bar dataKey="product2" stroke="#7c3aed" fill="#8b5cf6" />
         </BarChart>
       </ResponsiveContainer>
