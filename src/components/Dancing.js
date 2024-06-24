@@ -47,6 +47,7 @@ export default function Dancing() {
 
   const sendRandomInteger = () => {
     if (socket && socket.readyState === WebSocket.OPEN) {
+      startCountdown();
       const nextInteger = integers[currentIndex];
       socket.send(nextInteger.toString());
       setVisibleIndex(nextInteger);
@@ -86,12 +87,6 @@ export default function Dancing() {
       .padStart(2, "0")}`;
   };
 
-  const handleStartClick = () => {
-    if (socket) {
-      sendRandomInteger();
-      startCountdown();
-    }
-  };
 
   const polygons = [
     { points: "50,200 350,50 350,350", className: "left" },
@@ -116,7 +111,7 @@ export default function Dancing() {
         </div>
         <div className="danc-rectangle-4">
           <div className="danc-div-wrapper">
-            <button className="danc-startbtn" onClick={handleStartClick}>
+            <button className="danc-startbtn" onClick={sendRandomInteger}>
               <div className="danc-text-wrapper-2">Start</div>
             </button>
           </div>
