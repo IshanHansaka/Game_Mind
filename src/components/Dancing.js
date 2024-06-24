@@ -8,7 +8,8 @@ export default function Dancing() {
   const [visibleIndex, setVisibleIndex] = useState(null);
   const [currentMessage, setCurrentMessage] = useState(null);
   const [currentScore, setCurrentScore] = useState(0);
-
+  const [currentTime, setCurrentTime] = useState(300);
+  const [isCountdown, setIsCountdown] = useState(false);
   useEffect(() => {
     const ws = new WebSocket("ws://192.168.8.153:81");
     setSocket(ws);
@@ -45,6 +46,7 @@ export default function Dancing() {
 
   const sendRandomInteger = () => {
     if (socket && socket.readyState === WebSocket.OPEN) {
+      setCurrentTime(currentTime - 1);
       const nextInteger = integers[currentIndex];
       socket.send(nextInteger.toString());
       setVisibleIndex(nextInteger);
@@ -53,6 +55,36 @@ export default function Dancing() {
     } else {
       console.log("WebSocket is not connected");
     }
+  };
+
+  const startCountdown = () => {
+    if (!isCountdown) {
+      setIsCountdown(true);
+      const timer = setInterval(() => {
+        setCurrentTime((prevTime) => {
+          if (prevTime > 0) {
+            return prevTime - 1;
+          } else {
+            clearInterval(timer);
+            setIsCountdown(false);
+            return 0;
+          }
+        });
+      }, 1000);
+    }
+  };
+
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes.toString().padStart(2, "0")}:${remainingSeconds
+      .toString()
+      .padStart(2, "0")}`;
+  };
+
+  const handleStartClick = () => {
+    sendRandomInteger();
+    startCountdown();
   };
 
   const polygons = [
@@ -78,16 +110,25 @@ export default function Dancing() {
         </div>
         <div className="danc-rectangle-4">
           <div className="danc-div-wrapper">
-            <button className="danc-startbtn" onClick={sendRandomInteger}>
+            <button className="danc-startbtn" onClick={handleStartClick}>
               <div className="danc-text-wrapper-2">Start</div>
             </button>
           </div>
+          <div className="danc-time">
+            <p className="danc-title">Time</p>
+            <p>:</p>
+            <span className="danc-text-wrapper-6">
+              {formatTime(currentTime)}
+            </span>
+          </div>
           <div className="danc-score">
-            <p className="danc-scoretitle">Score&nbsp;&nbsp;&nbsp;&nbsp;:</p>
+            <p className="danc-title">Score</p>
+            <p>:</p>
             <span className="danc-text-wrapper-4">{currentScore}</span>
           </div>
           <div className="danc-h-score">
-            <p className="danc-h-scoretitle">H.Score:</p>
+            <p className="danc-title">H.Score</p>
+            <p>:</p>
             <span className="danc-text-wrapper-5">29</span>
           </div>
         </div>
