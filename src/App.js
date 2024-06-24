@@ -19,11 +19,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route
-          exact
-          path="/"
-          element={currentUser != null ? <Dashboard /> : <LoginPage />}
-        />
+        <Route exact path="/" element={<Dashboard />} />
       </Routes>
     </Router>
   );
