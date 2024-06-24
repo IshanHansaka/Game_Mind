@@ -8,8 +8,9 @@ export default function Dancing() {
   const [visibleIndex, setVisibleIndex] = useState(null);
   const [currentMessage, setCurrentMessage] = useState(null);
   const [currentScore, setCurrentScore] = useState(0);
-  const [currentTime, setCurrentTime] = useState(300);
+  const [currentTime, setCurrentTime] = useState(60);
   const [isCountdown, setIsCountdown] = useState(false);
+
   useEffect(() => {
     const ws = new WebSocket("ws://192.168.8.153:81");
     setSocket(ws);
@@ -46,14 +47,13 @@ export default function Dancing() {
 
   const sendRandomInteger = () => {
     if (socket && socket.readyState === WebSocket.OPEN) {
-      setCurrentTime(currentTime - 1);
       const nextInteger = integers[currentIndex];
       socket.send(nextInteger.toString());
       setVisibleIndex(nextInteger);
       console.log("Sent: " + nextInteger);
       setCurrentIndex((currentIndex + 1) % integers.length);
     } else {
-      console.log("WebSocket is not connected");
+      console.log("WebSocket is not connected or countdown is not active");
     }
   };
 
@@ -67,6 +67,10 @@ export default function Dancing() {
           } else {
             clearInterval(timer);
             setIsCountdown(false);
+            if (socket) {
+              socket.close();
+              setSocket(null);
+            }
             return 0;
           }
         });
@@ -83,8 +87,10 @@ export default function Dancing() {
   };
 
   const handleStartClick = () => {
-    sendRandomInteger();
-    startCountdown();
+    if (socket) {
+      sendRandomInteger();
+      startCountdown();
+    }
   };
 
   const polygons = [
