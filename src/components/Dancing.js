@@ -10,7 +10,7 @@ export default function Dancing() {
   const [visibleIndex, setVisibleIndex] = useState(null);
   const [currentMessage, setCurrentMessage] = useState(null);
   const [currentScore, setCurrentScore] = useState(0);
-  const [currentTime, setCurrentTime] = useState(10);
+  const [currentTime, setCurrentTime] = useState(60);
   const [isCountdown, setIsCountdown] = useState(false);
   const [highScore, setHighScore] = useState(0);
 
