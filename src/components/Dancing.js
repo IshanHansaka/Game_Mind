@@ -12,7 +12,7 @@ export default function Dancing() {
   const [currentScore, setCurrentScore] = useState(0);
   const [currentTime, setCurrentTime] = useState(10);
   const [isCountdown, setIsCountdown] = useState(false);
-  const [highScore, setHighScore] = useState(null);
+  const [highScore, setHighScore] = useState(0);
 
   useEffect(() => {
     const ws = new WebSocket("ws://192.168.8.153:81");
@@ -52,15 +52,44 @@ export default function Dancing() {
   //get HighScore from RDB
   useEffect(() => {
     const fetchHighScore = async () => {
-      const dbRef = ref(db, "hScore/dance");
-      const snapshot = await get(dbRef);
-      if (snapshot.exists()) {
-        setHighScore(snapshot.val());
+      const dbRef = ref(db, "highScore/");
+      try {
+        const snapshot = await get(dbRef);
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          setHighScore(data.dance);
+          console.log("Fetched high score: " + data.dance);
+        } else {
+          console.log("No data available");
+        }
+      } catch (error) {
+        console.error("Error fetching high score:", error);
       }
     };
 
     fetchHighScore();
   }, []);
+
+  // Update high score if current score exceeds it
+  useEffect(() => {
+    if (currentScore > highScore) {
+      updateHighScore(currentScore);
+    }
+  }, [currentScore]);
+
+  //update RDB node
+  const updateHighScore = (score) => {
+    const dbRef = ref(db, "highScore/");
+    const updatedScore = { dance: score };
+    update(dbRef, updatedScore)
+      .then(() => {
+        console.log("High score updated successfully");
+        setHighScore(score);
+      })
+      .catch((error) => {
+        console.error("Error updating high score:", error);
+      });
+  };
 
   const sendRandomInteger = () => {
     if (socket && socket.readyState === WebSocket.OPEN) {
@@ -89,15 +118,6 @@ export default function Dancing() {
               socket.close();
               setSocket(null);
             }
-            const dbRef = ref(db, "hScore/dance");
-            update(dbRef, currentScore)
-              .then(() => {
-                console.log("Node updated successfully");
-                setHighScore(currentScore);
-              })
-              .catch((error) => {
-                console.error("Error updating node:", error);
-              });
             return 0;
           }
         });
