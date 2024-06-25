@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Dancing.css";
+import { db } from "../firebase/firebaseConfig.js";
+import { ref, get, set } from "firebase/database";
 
 export default function Dancing() {
   const [socket, setSocket] = useState(null);
@@ -10,6 +12,7 @@ export default function Dancing() {
   const [currentScore, setCurrentScore] = useState(0);
   const [currentTime, setCurrentTime] = useState(60);
   const [isCountdown, setIsCountdown] = useState(false);
+  const [highScore, setHighScore] = useState(0);
 
   useEffect(() => {
     const ws = new WebSocket("ws://192.168.8.153:81");
@@ -58,6 +61,18 @@ export default function Dancing() {
     }
   };
 
+  useEffect(() => {
+    const fetchHighScore = async () => {
+      const dbRef = ref(db, "hScore/dance");
+      const snapshot = await get(dbRef);
+      if (snapshot.exists()) {
+        setHighScore(snapshot.val());
+      }
+    };
+
+    fetchHighScore();
+  }, []);
+
   const startCountdown = () => {
     if (!isCountdown) {
       setIsCountdown(true);
@@ -68,14 +83,23 @@ export default function Dancing() {
           } else {
             clearInterval(timer);
             setIsCountdown(false);
-            if (socket) {
-              socket.close();
-              setSocket(null);
-            }
+            handleEndOfGame();
             return 0;
           }
         });
       }, 1000);
+    }
+  };
+
+  const handleEndOfGame = async () => {
+    if (socket) {
+      if (currentScore > highScore) {
+        const dbRef = ref(db, "hScore/dance");
+        await set(dbRef, currentScore);
+        setHighScore(currentScore);
+      }
+      socket.close();
+      setSocket(null);
     }
   };
 
@@ -86,7 +110,6 @@ export default function Dancing() {
       .toString()
       .padStart(2, "0")}`;
   };
-
 
   const polygons = [
     { points: "50,200 350,50 350,350", className: "left" },
