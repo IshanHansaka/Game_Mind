@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Dancing.css";
 import { db } from "../firebase/firebaseConfig.js";
-import { ref, get, set } from "firebase/database";
+import { ref, get, update } from "firebase/database";
 
 export default function Dancing() {
   const [socket, setSocket] = useState(null);
@@ -25,7 +25,7 @@ export default function Dancing() {
     ws.onmessage = (message) => {
       console.log("Received: " + message.data);
       setCurrentScore((prevScore) => prevScore + 1);
-      setCurrentMessage(message.data); // Update currentMessage state
+      setCurrentMessage(message.data);
     };
 
     ws.onerror = (error) => {
@@ -41,12 +41,26 @@ export default function Dancing() {
     };
   }, []);
 
+  //  handling received WebSocket messages
   useEffect(() => {
     if (currentMessage !== null) {
       sendRandomInteger();
-      setCurrentMessage(null); // Reset currentMessage after processing
+      setCurrentMessage(null);
     }
-  }, [currentMessage]); // Only re-run when currentMessage changes
+  }, [currentMessage]);
+
+  //get HighScore from RDB
+  useEffect(() => {
+    const fetchHighScore = async () => {
+      const dbRef = ref(db, "hScore/dance");
+      const snapshot = await get(dbRef);
+      if (snapshot.exists()) {
+        setHighScore(snapshot.val());
+      }
+    };
+
+    fetchHighScore();
+  }, []);
 
   const sendRandomInteger = () => {
     if (socket && socket.readyState === WebSocket.OPEN) {
@@ -61,18 +75,6 @@ export default function Dancing() {
     }
   };
 
-  useEffect(() => {
-    const fetchHighScore = async () => {
-      const dbRef = ref(db, "hScore/dance");
-      const snapshot = await get(dbRef);
-      if (snapshot.exists()) {
-        setHighScore(snapshot.val());
-      }
-    };
-
-    fetchHighScore();
-  }, []);
-
   const startCountdown = () => {
     if (!isCountdown) {
       setIsCountdown(true);
@@ -83,11 +85,19 @@ export default function Dancing() {
           } else {
             clearInterval(timer);
             setIsCountdown(false);
-            handleEndOfGame();
             if (socket) {
               socket.close();
               setSocket(null);
             }
+            const dbRef = ref(db, "hScore/dance");
+            update(dbRef, currentScore)
+              .then(() => {
+                console.log("Node updated successfully");
+                setHighScore(currentScore);
+              })
+              .catch((error) => {
+                console.error("Error updating node:", error);
+              });
             return 0;
           }
         });
@@ -95,14 +105,7 @@ export default function Dancing() {
     }
   };
 
-  const handleEndOfGame = async () => {
-    if (currentScore > highScore) {
-      const dbWrite = ref(db, "hScore/dance");
-      set(dbWrite, currentScore);
-      setHighScore(currentScore);
-    }
-  };
-
+  //convert seconds to formated time 00:00
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
