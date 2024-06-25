@@ -10,9 +10,9 @@ export default function Dancing() {
   const [visibleIndex, setVisibleIndex] = useState(null);
   const [currentMessage, setCurrentMessage] = useState(null);
   const [currentScore, setCurrentScore] = useState(0);
-  const [currentTime, setCurrentTime] = useState(60);
+  const [currentTime, setCurrentTime] = useState(10);
   const [isCountdown, setIsCountdown] = useState(false);
-  const [highScore, setHighScore] = useState(0);
+  const [highScore, setHighScore] = useState(null);
 
   useEffect(() => {
     const ws = new WebSocket("ws://192.168.8.153:81");
@@ -84,6 +84,10 @@ export default function Dancing() {
             clearInterval(timer);
             setIsCountdown(false);
             handleEndOfGame();
+            if (socket) {
+              socket.close();
+              setSocket(null);
+            }
             return 0;
           }
         });
@@ -92,14 +96,10 @@ export default function Dancing() {
   };
 
   const handleEndOfGame = async () => {
-    if (socket) {
-      if (currentScore > highScore) {
-        const dbRef = ref(db, "hScore/dance");
-        await set(dbRef, currentScore);
-        setHighScore(currentScore);
-      }
-      socket.close();
-      setSocket(null);
+    if (currentScore > highScore) {
+      const dbWrite = ref(db, "hScore/dance");
+      set(dbWrite, currentScore);
+      setHighScore(currentScore);
     }
   };
 
@@ -127,6 +127,7 @@ export default function Dancing() {
               <polygon
                 key={index}
                 points={polygon.points}
+                className={polygon.className}
                 style={{ display: visibleIndex === index ? "block" : "none" }}
               />
             ))}
@@ -153,7 +154,7 @@ export default function Dancing() {
           <div className="danc-h-score">
             <p className="danc-title">H.Score</p>
             <p>:</p>
-            <span className="danc-text-wrapper-5">29</span>
+            <span className="danc-text-wrapper-5">{highScore}</span>
           </div>
         </div>
       </div>
