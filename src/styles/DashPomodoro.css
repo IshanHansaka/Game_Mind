@@ -31,7 +31,7 @@
   align-items: center;
   justify-content: center;
 }
-.pomo-text-wrapper-3 p{
+.pomo-text-wrapper-3 p {
   margin: 0;
 }
 .pomo-rectangle-3 {
@@ -109,7 +109,7 @@
   border-radius: 20px;
   border: none;
   background: transparent;
-  cursor: pointer;;
+  cursor: pointer;
 }
 
 .pomo-text-wrapper-4 {
@@ -138,6 +138,11 @@
 .pomo-p p {
   width: 740px;
   margin: 0;
+}
+
+.pomo-p span {
+  text-decoration: underline;
+  font-weight: 500px;
 }
 
 .pomo-rectangle-4 {
