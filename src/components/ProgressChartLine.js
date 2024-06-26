@@ -10,7 +10,7 @@ import {
 } from "recharts";
 
 import { db } from "../firebase/firebaseConfig";
-import { collection, collectionGroup, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 
 export default function ProgressChartArea() {
   const [salesData, setSalesData] = useState([]);
