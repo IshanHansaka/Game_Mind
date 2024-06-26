@@ -140,11 +140,6 @@
   margin: 0;
 }
 
-.pomo-p span {
-  text-decoration: underline;
-  font-weight: 500px;
-}
-
 .pomo-rectangle-4 {
   transition: transform 0.38s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
