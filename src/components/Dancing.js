@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Dancing.css";
-import { db } from "../firebase/firebaseConfig.js";
+import { rdb } from "../firebase/firebaseConfig.js";
 import { ref, get, update } from "firebase/database";
 
 export default function Dancing() {
@@ -52,7 +52,7 @@ export default function Dancing() {
   //get HighScore from RDB
   useEffect(() => {
     const fetchHighScore = async () => {
-      const dbRef = ref(db, "highScore/");
+      const dbRef = ref(rdb, "highScore/");
       try {
         const snapshot = await get(dbRef);
         if (snapshot.exists()) {
@@ -79,7 +79,7 @@ export default function Dancing() {
 
   //update RDB node
   const updateHighScore = (score) => {
-    const dbRef = ref(db, "highScore/");
+    const dbRef = ref(rdb, "highScore/");
     const updatedScore = { dance: score };
     update(dbRef, updatedScore)
       .then(() => {
