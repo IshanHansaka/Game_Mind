@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 import { getFirestore } from "firebase/firestore";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -14,11 +16,14 @@ const firebaseConfig = {
   messagingSenderId: "651412074531",
   appId: "1:651412074531:web:0ae0de905b0aa0ff5f0196",
   measurementId: "G-M2QY54GRFT",
+  databaseURL: "https://first-year-hardware-project-default-rtdb.asia-southeast1.firebasedatabase.app/",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+const rdb = getDatabase(app);
 const db = getFirestore();
 
-export { db };
+export { db, rdb };
+
