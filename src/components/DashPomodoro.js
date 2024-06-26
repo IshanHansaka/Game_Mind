@@ -11,7 +11,9 @@ export default function DashPomodoro() {
   };
 
   const handleSessionDec = () => {
-    setCurrentSession((prevSession) => (prevSession > 25 ? prevSession - 5 : 25));
+    setCurrentSession((prevSession) =>
+      prevSession > 25 ? prevSession - 5 : 25
+    );
   };
 
   const sessionHours = Math.floor(currentSession / 60);
@@ -53,8 +55,8 @@ export default function DashPomodoro() {
         </div>
         <div className="pomo-p">
           <p>
-            To get started, please specify the duration for your focus sessions.
-            You can choose from the time menu provided.
+            To get started, please specify the duration for your focus <span>Time in
+            Minutes</span>. You can choose from the time menu provided.
           </p>
         </div>
       </div>
