@@ -4,20 +4,18 @@ import Down from "../assets/images/down 1.png";
 import Up from "../assets/images/up 1.png";
 
 export default function DashPomodoro() {
-  const [currentSession, setCurrentSession] = useState(25);
+  const [currentSession, setCurrentSession] = useState(0);
 
   const handleSessionInc = () => {
-    setCurrentSession((prevSession) => prevSession + 5);
+    setCurrentSession((prevSession) => prevSession + 1);
   };
 
   const handleSessionDec = () => {
-    setCurrentSession((prevSession) =>
-      prevSession > 25 ? prevSession - 5 : 25
-    );
+    setCurrentSession((prevSession) => (prevSession > 0 ? prevSession - 1 : 0));
   };
 
-  const sessionHours = Math.floor(currentSession / 60);
-  const sessionMinutes = currentSession % 60;
+  const sessionHours = Math.floor(currentSession / 2);
+  const sessionMinutes = (currentSession % 2) * 30;
 
   return (
     <>
@@ -55,8 +53,8 @@ export default function DashPomodoro() {
         </div>
         <div className="pomo-p">
           <p>
-            To get started, please specify the duration for your focus <span>Time in
-            Minutes</span>. You can choose from the time menu provided.
+            To get started, please specify the duration for your focus sessions.
+            You can choose from the time menu provided.
           </p>
         </div>
       </div>
