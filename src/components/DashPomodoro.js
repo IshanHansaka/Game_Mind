@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/DashPomodoro.css";
 import Down from "../assets/images/down 1.png";
 import Up from "../assets/images/up 1.png";
 
 export default function DashPomodoro() {
   const [currentSession, setCurrentSession] = useState(0);
+  const [socket, setSocket] = useState(null);
 
   const handleSessionInc = () => {
     setCurrentSession((prevSession) => prevSession + 1);
@@ -17,6 +18,39 @@ export default function DashPomodoro() {
   const sessionHours = Math.floor(currentSession / 2);
   const sessionMinutes = (currentSession % 2) * 30;
 
+  useEffect(() => {
+    const ws = new WebSocket("ws://192.168.8.153:81");
+    setSocket(ws);
+
+    ws.onopen = () => {
+      console.log("WebSocket Client Connected");
+    };
+
+    ws.onmessage = (message) => {
+      console.log("Received: " + message.data);
+    };
+
+    ws.onerror = (error) => {
+      console.error("WebSocket Error: ", error);
+    };
+
+    ws.onclose = () => {
+      console.log("WebSocket Connection Closed");
+    };
+
+    return () => {
+      ws.close();
+    };
+  }, []);
+
+  const handleStart = () => {
+    if (socket && socket.readyState === WebSocket.OPEN) {
+      socket.send(currentSession.toString());
+      console.log("Sent: " + currentSession);
+    } else {
+      console.log("WebSocket is not connected");
+    }
+  };
   return (
     <>
       <div className="pomo-rectangle-2">
@@ -46,7 +80,7 @@ export default function DashPomodoro() {
             </div>
           </div>
           <div className="pomo-rectangle-4">
-            <button className="btn-start">
+            <button className="btn-start" onClick={handleStart}>
               <div className="pomo-text-wrapper-4">Start</div>
             </button>
           </div>
