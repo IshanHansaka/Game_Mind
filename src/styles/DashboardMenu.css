@@ -37,16 +37,16 @@
 .home-dashboard .text-wrapper-10 {
   color: #000000;
   font-family: "Inter-Bold", Helvetica;
-  font-size: 32px;
+  font-size: 35px;
   font-weight: 700;
   height: 39px;
-  left: 1053px;
+  right: 0;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  text-align: center;
+  text-align: right;
   top: 31px;
-  width: 118px;
+  width: 160px;
 }
 
 .home-dashboard .element-jan {

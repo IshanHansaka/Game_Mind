@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../styles/DashboardMenu.css";
 
 export default function DashboardMenu() {
-  const userName = localStorage.getItem("name") || "John";
-
   const [currentDate, setCurrentDate] = useState(new Date());
 
   useEffect(() => {
@@ -13,13 +11,9 @@ export default function DashboardMenu() {
     return () => clearInterval(timer);
   }, []);
 
-  const options = {
-    weekday: "long",
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  };
-  const formattedDate = currentDate.toLocaleDateString("en-US", options);
+  const options = { weekday: "long" };
+  const dayOfWeek = currentDate.toLocaleDateString("en-US", options);
+
   const formattedTime = currentDate.toLocaleTimeString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
@@ -48,10 +42,10 @@ export default function DashboardMenu() {
     <>
       <div className="rectangle" />
       <div className="text-wrapper-8">
-        Hello, <span>{userName}</span>!
+        Hello, <span>John</span>!
       </div>
       <p className="text-wrapper-9">Nice to see you again</p>
-      <div className="text-wrapper-10">{formattedDate.split(" ")[0]}</div>
+      <div className="text-wrapper-10">{dayOfWeek}</div>
       <p className="element-jan">
         <span className="text-wrapper-11">{day}</span>
         <span className="text-wrapper-11">{daySuffix(day)}</span>
