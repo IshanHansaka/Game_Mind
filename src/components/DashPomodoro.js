@@ -4,18 +4,18 @@ import Down from "../assets/images/down 1.png";
 import Up from "../assets/images/up 1.png";
 
 export default function DashPomodoro() {
-  const [currentSession, setCurrentSession] = useState(0);
+  const [currentSession, setCurrentSession] = useState(25);
 
   const handleSessionInc = () => {
-    setCurrentSession((prevSession) => prevSession + 1);
+    setCurrentSession((prevSession) => prevSession + 5);
   };
 
   const handleSessionDec = () => {
-    setCurrentSession((prevSession) => (prevSession > 0 ? prevSession - 1 : 0));
+    setCurrentSession((prevSession) => (prevSession > 25 ? prevSession - 5 : 25));
   };
 
-  const sessionHours = Math.floor(currentSession / 2);
-  const sessionMinutes = (currentSession % 2) * 30;
+  const sessionHours = Math.floor(currentSession / 60);
+  const sessionMinutes = currentSession % 60;
 
   return (
     <>
