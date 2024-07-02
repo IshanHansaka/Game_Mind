@@ -19,7 +19,7 @@ export default function DashPomodoro() {
   const sessionMinutes = (currentSession % 2) * 30;
 
   useEffect(() => {
-    const ws = new WebSocket("ws://192.168.8.153:81");
+    const ws = new WebSocket("ws://192.168.8.116:81");
     setSocket(ws);
 
     ws.onopen = () => {
