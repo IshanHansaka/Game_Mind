@@ -15,7 +15,7 @@ export default function Dancing() {
   const [highScore, setHighScore] = useState(0);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://192.168.8.153:81");
+    const ws = new WebSocket("ws://192.168.8.154:81");
     setSocket(ws);
 
     ws.onopen = () => {
