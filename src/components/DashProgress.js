@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/DashProgress.css";
 import ProgressChartBar from "./ProgressChartBar.js";
+import ProgressChartLine from "./ProgressChartLine.js";
+import ProgressChartArea from "./ProgressChartArea.js";
 
 export default function DashProgress() {
   return (
@@ -8,7 +10,7 @@ export default function DashProgress() {
       <div className="pro-overlap">
         <div className="pro-chart">
           <div className="chart-container">
-            <ProgressChartBar />
+            <ProgressChartArea />
           </div>
         </div> 
       </div>
