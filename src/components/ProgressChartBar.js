@@ -12,15 +12,15 @@ import { db } from "../firebase/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 
 export default function ProgressChartArea() {
-  const [salesData, setSalesData] = useState([]);
+  const [sessions, setSessions] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const collectionRef = collection(db, "test");
+      const collectionRef = collection(db, "sessions");
       try {
         const snapshot = await getDocs(collectionRef);
         const data = snapshot.docs.map((doc) => ({ ...doc.data() }));
-        setSalesData(data.reverse());
+        setSessions(data.reverse());
       } catch (err) {
         console.error("Error fetching data:", err.message);
       }
@@ -32,9 +32,9 @@ export default function ProgressChartArea() {
   return (
     <>
       <ResponsiveContainer>
-        <BarChart data={salesData}>
+        <BarChart data={sessions}>
           <XAxis
-            dataKey="name"
+            dataKey="date"
             tick={{ fontSize: 20, fill: "#000000" }}
             axisLine={{ stroke: "#000000" }}
           />
@@ -44,8 +44,7 @@ export default function ProgressChartArea() {
           />
           <CartesianGrid strokeDasharray="3 3" stroke="gray" />
           <Legend wrapperStyle={{ fontSize: "26px" }} />
-          <Bar dataKey="product1" stroke="#2563eb" fill="#304674" />
-          <Bar dataKey="product2" stroke="#7c3aed" fill="#8b5cf6" />
+          <Bar dataKey="session" stroke="#2563eb" fill="#304674" />
         </BarChart>
       </ResponsiveContainer>
     </>
