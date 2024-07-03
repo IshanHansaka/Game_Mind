@@ -12,15 +12,16 @@ import { db } from "../firebase/firebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 
 export default function ProgressChartArea() {
-  const [salesData, setSalesData] = useState([]);
+  const [sessions, setSessions] = useState([]);
+  const [aggregatedSessions, setAggregatedSessions] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const collectionRef = collection(db, "test");
+      const collectionRef = collection(db, "sessions");
       try {
         const snapshot = await getDocs(collectionRef);
         const data = snapshot.docs.map((doc) => ({ ...doc.data() }));
-        setSalesData(data.reverse());
+        setSessions(data);
       } catch (err) {
         console.error("Error fetching data:", err.message);
       }
@@ -29,12 +30,31 @@ export default function ProgressChartArea() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const aggregateData = () => {
+      const aggregated = sessions.reduce((acc, session) => {
+        const date = session.date;
+        const sessionCount = parseInt(session.session, 10);
+        if (!acc[date]) {
+          acc[date] = { date, session: 0 };
+        }
+        acc[date].session += sessionCount;
+        return acc;
+      }, {});
+
+      const result = Object.values(aggregated);
+      setAggregatedSessions(result);
+    };
+
+    aggregateData();
+  }, [sessions]);
+
   return (
     <>
       <ResponsiveContainer>
-        <AreaChart data={salesData}>
+        <AreaChart data={aggregatedSessions}>
           <XAxis
-            dataKey="name"
+            dataKey="date"
             tick={{ fontSize: 20, fill: "#000000" }}
             axisLine={{ stroke: "#000000" }}
           />
@@ -42,21 +62,13 @@ export default function ProgressChartArea() {
             tick={{ fontSize: 20, fill: "#000000" }}
             axisLine={{ stroke: "#000000" }}
           />
-          <CartesianGrid strokeDasharray="5 5" stroke="gray" />
+          <CartesianGrid strokeDasharray="3 3" stroke="gray" />
           <Legend wrapperStyle={{ fontSize: "26px" }} />
           <Area
             type="monotone"
-            dataKey="product1"
+            dataKey="session"
             stroke="#2563eb"
             fill="#3b82f6"
-            stackId="1"
-          />
-          <Area
-            type="monotone"
-            dataKey="product2"
-            stroke="#7c3aed"
-            fill="#8b5cf6"
-            stackId="1"
           />
         </AreaChart>
       </ResponsiveContainer>
