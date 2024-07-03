@@ -68,7 +68,7 @@ export default function ProgressChartArea() {
             type="monotone"
             dataKey="session"
             stroke="#2563eb"
-            fill="#3b82f6"
+            fill="#304674"
           />
         </LineChart>
       </ResponsiveContainer>
