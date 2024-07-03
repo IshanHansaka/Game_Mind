@@ -43,6 +43,9 @@ export default function ProgressChartArea() {
     fetchData();
   }, []);
 
+  // Formatter function to display only integer values
+  const integerTickFormatter = (value) => Math.floor(value);
+
   return (
     <>
       <ResponsiveContainer>
@@ -55,6 +58,7 @@ export default function ProgressChartArea() {
           <YAxis
             tick={{ fontSize: 20, fill: "#000000" }}
             axisLine={{ stroke: "#000000" }}
+            tickFormatter={integerTickFormatter}
           />
           <CartesianGrid strokeDasharray="3 3" stroke="gray" />
           <Legend wrapperStyle={{ fontSize: "26px" }} />
