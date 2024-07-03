@@ -13,6 +13,7 @@ import { collection, getDocs } from "firebase/firestore";
 
 export default function ProgressChartArea() {
   const [sessions, setSessions] = useState([]);
+  const [aggregatedSessions, setAggregatedSessions] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,21 +21,7 @@ export default function ProgressChartArea() {
       try {
         const snapshot = await getDocs(collectionRef);
         const data = snapshot.docs.map((doc) => ({ ...doc.data() }));
-
-        // Aggregate sessions by date
-        const aggregatedData = data.reduce((acc, curr) => {
-          const date = curr.date; // assuming date is stored in 'date' field
-          if (!acc[date]) {
-            acc[date] = { date: date, session: 0 };
-          }
-          acc[date].session += curr.session; // assuming session is a numeric field
-          return acc;
-        }, {});
-
-        // Convert the aggregated data object to an array
-        const aggregatedArray = Object.values(aggregatedData);
-        
-        setSessions(aggregatedArray.reverse());
+        setSessions(data);
       } catch (err) {
         console.error("Error fetching data:", err.message);
       }
@@ -43,13 +30,29 @@ export default function ProgressChartArea() {
     fetchData();
   }, []);
 
-  // Formatter function to display only integer values
-  const integerTickFormatter = (value) => Math.floor(value);
+  useEffect(() => {
+    const aggregateData = () => {
+      const aggregated = sessions.reduce((acc, session) => {
+        const date = session.date;
+        const sessionCount = parseInt(session.session, 10);
+        if (!acc[date]) {
+          acc[date] = { date, session: 0 };
+        }
+        acc[date].session += sessionCount;
+        return acc;
+      }, {});
+
+      const result = Object.values(aggregated);
+      setAggregatedSessions(result);
+    };
+
+    aggregateData();
+  }, [sessions]);
 
   return (
     <>
       <ResponsiveContainer>
-        <BarChart data={sessions}>
+        <BarChart data={aggregatedSessions}>
           <XAxis
             dataKey="date"
             tick={{ fontSize: 20, fill: "#000000" }}
@@ -58,7 +61,6 @@ export default function ProgressChartArea() {
           <YAxis
             tick={{ fontSize: 20, fill: "#000000" }}
             axisLine={{ stroke: "#000000" }}
-            tickFormatter={integerTickFormatter}
           />
           <CartesianGrid strokeDasharray="3 3" stroke="gray" />
           <Legend wrapperStyle={{ fontSize: "26px" }} />
