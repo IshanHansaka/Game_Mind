@@ -20,7 +20,21 @@ export default function ProgressChartArea() {
       try {
         const snapshot = await getDocs(collectionRef);
         const data = snapshot.docs.map((doc) => ({ ...doc.data() }));
-        setSessions(data.reverse());
+
+        // Aggregate sessions by date
+        const aggregatedData = data.reduce((acc, curr) => {
+          const date = curr.date; // assuming date is stored in 'date' field
+          if (!acc[date]) {
+            acc[date] = { date: date, session: 0 };
+          }
+          acc[date].session += curr.session; // assuming session is a numeric field
+          return acc;
+        }, {});
+
+        // Convert the aggregated data object to an array
+        const aggregatedArray = Object.values(aggregatedData);
+        
+        setSessions(aggregatedArray.reverse());
       } catch (err) {
         console.error("Error fetching data:", err.message);
       }
