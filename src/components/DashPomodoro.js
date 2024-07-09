@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../styles/DashPomodoro.css";
 import Down from "../assets/images/down 1.png";
 import Up from "../assets/images/up 1.png";
 
-export default function DashPomodoro() {
+export default function DashPomodoro({ socket }) {
   const [currentSession, setCurrentSession] = useState(0);
-  const [socket, setSocket] = useState(null);
 
   const handleSessionInc = () => {
     setCurrentSession((prevSession) => prevSession + 1);
@@ -17,31 +16,6 @@ export default function DashPomodoro() {
 
   const sessionHours = Math.floor(currentSession / 2);
   const sessionMinutes = (currentSession % 2) * 30;
-
-  useEffect(() => {
-    const ws = new WebSocket("ws://192.168.8.116:81");
-    setSocket(ws);
-
-    ws.onopen = () => {
-      console.log("WebSocket Client Connected");
-    };
-
-    ws.onmessage = (message) => {
-      console.log("Received: " + message.data);
-    };
-
-    ws.onerror = (error) => {
-      console.error("WebSocket Error: ", error);
-    };
-
-    ws.onclose = () => {
-      console.log("WebSocket Connection Closed");
-    };
-
-    return () => {
-      ws.close();
-    };
-  }, []);
 
   const handleStart = () => {
     if (socket && socket.readyState === WebSocket.OPEN) {
