@@ -109,6 +109,11 @@ export default function Dashboard() {
     };
   }, []);
 
+  useEffect(() => {
+    console.log("Updated danceTime:", danceTime);
+    setDanceTime(0);
+  }, [danceTime]);
+
   return (
     <div className="home-dashboard">
       <div className="container">
