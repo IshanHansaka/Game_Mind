@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Dashboard.css";
 import DashboardNavbar from "../components/DashboardNavbar.js";
 import DashboardMenu from "../components/DashboardMenu.js";
@@ -13,6 +13,9 @@ import Buzzwire from "../components/Buzzwire.js";
 export default function Dashboard() {
   const [currentComponent, setCurrentComponent] = useState("home");
   const [currentMenu, setCurrentMenu] = useState("menu");
+  const [socket, setSocket] = useState(null);
+  const [dance, setDance] = useState(false);
+  const [danceTime, setDanceTime] = useState(0);
 
   const handleSettingsClick = () => {
     setCurrentComponent("pomodoro");
@@ -56,11 +59,11 @@ export default function Dashboard() {
       />
     );
   } else if (currentComponent === "pomodoro") {
-    RenderedComponent = <DashPomodoro />;
+    RenderedComponent = <DashPomodoro socket={socket} danceTime={danceTime} />;
   } else if (currentComponent === "progress") {
     RenderedComponent = <DashProgress />;
   } else if (currentComponent === "dance") {
-    RenderedComponent = <Dancing />;
+    RenderedComponent = <Dancing dance={dance} />;
   } else if (currentComponent === "memory") {
     RenderedComponent = <Memory />;
   } else if (currentComponent === "buzz") {
@@ -71,8 +74,40 @@ export default function Dashboard() {
   if (currentMenu === "menu") {
     RenderedMenu = <DashboardMenu />;
   } else if (currentMenu === "status") {
-    RenderedMenu = <DasboardStatus onDashClick={handleDashClick} currentComponent={currentComponent}/>;
+    RenderedMenu = (
+      <DasboardStatus
+        onDashClick={handleDashClick}
+        currentComponent={currentComponent}
+      />
+    );
   }
+
+  useEffect(() => {
+    const ws = new WebSocket("ws://192.168.8.116:81");
+    setSocket(ws);
+
+    ws.onopen = () => {
+      console.log("WebSocket Client Connected");
+    };
+
+    ws.onmessage = (message) => {
+      console.log("Received: " + message.data);
+      setDanceTime(message.data);
+      setDance(true);
+    };
+
+    ws.onerror = (error) => {
+      console.error("WebSocket Error: ", error);
+    };
+
+    ws.onclose = () => {
+      console.log("WebSocket Connection Closed");
+    };
+
+    return () => {
+      ws.close();
+    };
+  }, []);
 
   return (
     <div className="home-dashboard">
