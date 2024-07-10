@@ -59,11 +59,11 @@ export default function Dashboard() {
       />
     );
   } else if (currentComponent === "pomodoro") {
-    RenderedComponent = <DashPomodoro socket={socket} danceTime={danceTime} />;
+    RenderedComponent = <DashPomodoro socket={socket} />;
   } else if (currentComponent === "progress") {
     RenderedComponent = <DashProgress />;
   } else if (currentComponent === "dance") {
-    RenderedComponent = <Dancing dance={dance} />;
+    RenderedComponent = <Dancing dance={dance} danceTime={danceTime} />;
   } else if (currentComponent === "memory") {
     RenderedComponent = <Memory />;
   } else if (currentComponent === "buzz") {
@@ -108,11 +108,6 @@ export default function Dashboard() {
       ws.close();
     };
   }, []);
-
-  useEffect(() => {
-    console.log("Updated danceTime:", danceTime);
-    setDanceTime(0);
-  }, [danceTime]);
 
   return (
     <div className="home-dashboard">
