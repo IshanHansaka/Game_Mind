@@ -94,6 +94,7 @@ export default function Dashboard() {
       console.log("Received: " + message.data);
       setDanceTime(message.data);
       setDance(true);
+      handleDanceClick();
     };
 
     ws.onerror = (error) => {
