@@ -3,19 +3,20 @@ import "../styles/Dancing.css";
 import { rdb } from "../firebase/firebaseConfig.js";
 import { ref, get, update } from "firebase/database";
 
-export default function Dancing({ dance }) {
+export default function Dancing({ dance, danceTime }) {
   const [socket, setSocket] = useState(null);
   const integers = [0, 1, 2, 3, 1, 2, 0, 3, 1, 2, 3, 0, 1, 3, 0, 2, 1, 3];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleIndex, setVisibleIndex] = useState(null);
   const [currentMessage, setCurrentMessage] = useState(null);
   const [currentScore, setCurrentScore] = useState(0);
-  const [currentTime, setCurrentTime] = useState(60);
+  const seconds = Math.floor(danceTime / 1000);
+  const [currentTime, setCurrentTime] = useState(seconds);
   const [isCountdown, setIsCountdown] = useState(false);
   const [highScore, setHighScore] = useState(0);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://192.168.8.154:81");
+    const ws = new WebSocket("ws://192.168.8.153:81");
     setSocket(ws);
 
     ws.onopen = () => {
