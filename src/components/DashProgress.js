@@ -1,7 +1,5 @@
 import React from "react";
 import "../styles/DashProgress.css";
-import ProgressChartBar from "./ProgressChartBar.js";
-import ProgressChartLine from "./ProgressChartLine.js";
 import ProgressChartArea from "./ProgressChartArea.js";
 
 export default function DashProgress() {
