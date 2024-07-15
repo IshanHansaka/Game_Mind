@@ -20,7 +20,10 @@ export default function ProgressChartArea() {
       const collectionRef = collection(db, "sessions");
       try {
         const snapshot = await getDocs(collectionRef);
-        const data = snapshot.docs.map((doc) => ({ ...doc.data() }));
+        const data = snapshot.docs.map((doc) => ({
+          ...doc.data(),
+          numDetections: parseInt(doc.data().numDetections, 10), // Ensure numDetections is a number
+        }));
         setSessions(data);
       } catch (err) {
         console.error("Error fetching data:", err.message);
@@ -34,44 +37,50 @@ export default function ProgressChartArea() {
     const aggregateData = () => {
       const aggregated = sessions.reduce((acc, session) => {
         const date = session.date;
-        const sessionCount = parseInt(session.session, 10);
         if (!acc[date]) {
-          acc[date] = { date, session: 0 };
+          acc[date] = { date, numDetections: 0 };
         }
-        acc[date].session += sessionCount;
+        acc[date].numDetections += session.numDetections;
         return acc;
       }, {});
 
-      const result = Object.values(aggregated);
+      const result = Object.values(aggregated).sort(
+        (a, b) => new Date(a.date) - new Date(b.date)
+      );
       setAggregatedSessions(result);
     };
 
-    aggregateData();
+    if (sessions.length > 0) {
+      aggregateData();
+    }
   }, [sessions]);
 
   return (
     <>
-      <ResponsiveContainer>
-        <AreaChart data={aggregatedSessions}>
-          <XAxis
-            dataKey="date"
-            tick={{ fontSize: 20, fill: "#000000" }}
-            axisLine={{ stroke: "#000000" }}
-          />
-          <YAxis
-            tick={{ fontSize: 20, fill: "#000000" }}
-            axisLine={{ stroke: "#000000" }}
-          />
-          <CartesianGrid strokeDasharray="3 3" stroke="gray" />
-          <Legend wrapperStyle={{ fontSize: "26px" }} />
-          <Area
-            type="monotone"
-            dataKey="session"
-            stroke="#2563eb"
-            fill="#304674"
-          />
-        </AreaChart>
-      </ResponsiveContainer>
+      <AreaChart
+        data={aggregatedSessions}
+        width={1100}
+        height={600}
+        margin={{right: 50}}
+      >
+        <XAxis
+          dataKey="date"
+          tick={{ fontSize: 20, fill: "#000000" }}
+          axisLine={{ stroke: "#000000" }}
+        />
+        <YAxis
+          tick={{ fontSize: 20, fill: "#000000" }}
+          axisLine={{ stroke: "#000000" }}
+        />
+        <CartesianGrid strokeDasharray="5 5" stroke="gray" />
+        <Legend wrapperStyle={{ fontSize: "26px" }} />
+        <Area
+          type="monotone"
+          dataKey="numDetections"
+          stroke="#2563eb"
+          fill="#304674"
+        />
+      </AreaChart>
     </>
   );
 }
