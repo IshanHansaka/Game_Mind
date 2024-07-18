@@ -42,7 +42,7 @@ export default function Dancing({ dance, danceTime }) {
     };
   }, []);
 
-  //  handling received WebSocket messages
+  // Handling received WebSocket messages
   useEffect(() => {
     if (currentMessage !== null) {
       sendRandomInteger();
@@ -50,7 +50,7 @@ export default function Dancing({ dance, danceTime }) {
     }
   }, [currentMessage]);
 
-  //get HighScore from RDB
+  // Get HighScore from RDB
   useEffect(() => {
     const fetchHighScore = async () => {
       const dbRef = ref(rdb, "highScore/");
@@ -78,7 +78,7 @@ export default function Dancing({ dance, danceTime }) {
     }
   }, [currentScore]);
 
-  //update RDB node
+  // Update RDB node
   const updateHighScore = (score) => {
     const dbRef = ref(rdb, "highScore/");
     const updatedScore = { dance: score };
@@ -105,7 +105,7 @@ export default function Dancing({ dance, danceTime }) {
     }
   };
 
-  //countdown
+  // Countdown
   const startCountdown = () => {
     if (!isCountdown) {
       setIsCountdown(true);
@@ -127,7 +127,7 @@ export default function Dancing({ dance, danceTime }) {
     }
   };
 
-  //convert seconds to formated time 00:00
+  // Convert seconds to formatted time 00:00
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
