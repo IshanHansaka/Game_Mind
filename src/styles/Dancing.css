@@ -147,3 +147,23 @@
   font-size: 48px;
   font-weight: 400;
 }
+
+.left {
+  fill: yellow;
+  stroke: black;
+}
+
+.right {
+  fill: green;
+  stroke: black;
+}
+
+.up {
+  fill: red;
+  stroke: black;
+}
+
+.down {
+  fill: blue;
+  stroke: black;
+}
