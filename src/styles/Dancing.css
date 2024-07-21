@@ -149,12 +149,12 @@
 }
 
 .left {
-  fill: yellow;
+  fill: green;
   stroke: black;
 }
 
 .right {
-  fill: green;
+  fill: yellow;
   stroke: black;
 }
 
