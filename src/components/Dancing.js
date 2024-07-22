@@ -3,19 +3,20 @@ import "../styles/Dancing.css";
 import { rdb } from "../firebase/firebaseConfig.js";
 import { ref, get, update } from "firebase/database";
 
-export default function Dancing() {
+export default function Dancing({ dance, danceTime }) {
   const [socket, setSocket] = useState(null);
   const integers = [0, 1, 2, 3, 1, 2, 0, 3, 1, 2, 3, 0, 1, 3, 0, 2, 1, 3];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleIndex, setVisibleIndex] = useState(null);
   const [currentMessage, setCurrentMessage] = useState(null);
   const [currentScore, setCurrentScore] = useState(0);
-  const [currentTime, setCurrentTime] = useState(60);
+  const seconds = Math.floor(danceTime / 1000);
+  const [currentTime, setCurrentTime] = useState(seconds);
   const [isCountdown, setIsCountdown] = useState(false);
   const [highScore, setHighScore] = useState(0);
 
   useEffect(() => {
-    const ws = new WebSocket("ws://192.168.8.154:81");
+    const ws = new WebSocket("ws://192.168.8.153:81");
     setSocket(ws);
 
     ws.onopen = () => {
@@ -41,7 +42,7 @@ export default function Dancing() {
     };
   }, []);
 
-  //  handling received WebSocket messages
+  // Handling received WebSocket messages
   useEffect(() => {
     if (currentMessage !== null) {
       sendRandomInteger();
@@ -49,7 +50,7 @@ export default function Dancing() {
     }
   }, [currentMessage]);
 
-  //get HighScore from RDB
+  // Get HighScore from RDB
   useEffect(() => {
     const fetchHighScore = async () => {
       const dbRef = ref(rdb, "highScore/");
@@ -77,7 +78,7 @@ export default function Dancing() {
     }
   }, [currentScore]);
 
-  //update RDB node
+  // Update RDB node
   const updateHighScore = (score) => {
     const dbRef = ref(rdb, "highScore/");
     const updatedScore = { dance: score };
@@ -92,7 +93,7 @@ export default function Dancing() {
   };
 
   const sendRandomInteger = () => {
-    if (socket && socket.readyState === WebSocket.OPEN) {
+    if (socket && socket.readyState === WebSocket.OPEN && dance) {
       startCountdown();
       const nextInteger = integers[currentIndex];
       socket.send(nextInteger.toString());
@@ -104,10 +105,12 @@ export default function Dancing() {
     }
   };
 
-  //countdown
+  // Countdown
   const startCountdown = () => {
     if (!isCountdown) {
       setIsCountdown(true);
+      const newAudio = new Audio("/song.mp3");
+      newAudio.play();
       const timer = setInterval(() => {
         setCurrentTime((prevTime) => {
           if (prevTime > 0) {
@@ -115,6 +118,8 @@ export default function Dancing() {
           } else {
             clearInterval(timer);
             setIsCountdown(false);
+            newAudio.pause();
+            newAudio.currentTime = 0;
             if (socket) {
               socket.close();
               setSocket(null);
@@ -126,7 +131,7 @@ export default function Dancing() {
     }
   };
 
-  //convert seconds to formated time 00:00
+  // Convert seconds to formatted time 00:00
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
@@ -136,10 +141,22 @@ export default function Dancing() {
   };
 
   const polygons = [
-    { points: "50,200 350,50 350,350", className: "left" },
-    { points: "350,200 50,350 50,50", className: "right" },
-    { points: "200,50 350,350 50,350", className: "up" },
-    { points: "200,350 50,50 350,50", className: "down" },
+    {
+      points: "0,200 200,50 200,125 400,125 400,275 200,275 200,350",
+      className: "left",
+    },
+    {
+      points: "400,200 200,50 200,125 0,125 0,275 200,275 200,350",
+      className: "right",
+    },
+    {
+      points: "200,0 50,200 125,200 125,400 275,400 275,200 350,200",
+      className: "up",
+    },
+    {
+      points: "200,400 50,200 125,200 125,0 275,0 275,200 350,200",
+      className: "down",
+    },
   ];
 
   return (
