@@ -109,6 +109,8 @@ export default function Dancing({ dance, danceTime }) {
   const startCountdown = () => {
     if (!isCountdown) {
       setIsCountdown(true);
+      const newAudio = new Audio("/song.mp3");
+      newAudio.play();
       const timer = setInterval(() => {
         setCurrentTime((prevTime) => {
           if (prevTime > 0) {
@@ -116,6 +118,8 @@ export default function Dancing({ dance, danceTime }) {
           } else {
             clearInterval(timer);
             setIsCountdown(false);
+            newAudio.pause();
+            newAudio.currentTime = 0;
             if (socket) {
               socket.close();
               setSocket(null);
@@ -137,10 +141,22 @@ export default function Dancing({ dance, danceTime }) {
   };
 
   const polygons = [
-    { points: "50,200 350,50 350,350", className: "left" },
-    { points: "350,200 50,350 50,50", className: "right" },
-    { points: "200,50 350,350 50,350", className: "up" },
-    { points: "200,350 50,50 350,50", className: "down" },
+    {
+      points: "0,200 200,50 200,125 400,125 400,275 200,275 200,350",
+      className: "left",
+    },
+    {
+      points: "400,200 200,50 200,125 0,125 0,275 200,275 200,350",
+      className: "right",
+    },
+    {
+      points: "200,0 50,200 125,200 125,400 275,400 275,200 350,200",
+      className: "up",
+    },
+    {
+      points: "200,400 50,200 125,200 125,0 275,0 275,200 350,200",
+      className: "down",
+    },
   ];
 
   return (
