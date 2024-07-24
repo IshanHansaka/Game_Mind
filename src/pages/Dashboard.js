@@ -63,7 +63,13 @@ export default function Dashboard() {
   } else if (currentComponent === "progress") {
     RenderedComponent = <DashProgress />;
   } else if (currentComponent === "dance") {
-    RenderedComponent = <Dancing dance={dance} danceTime={danceTime} />;
+    RenderedComponent = (
+      <Dancing
+        dance={dance}
+        danceTime={danceTime}
+        onWebSocketClose={handleDashClick}
+      />
+    );
   } else if (currentComponent === "memory") {
     RenderedComponent = <Memory />;
   } else if (currentComponent === "buzz") {
