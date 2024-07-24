@@ -3,7 +3,7 @@ import "../styles/Dancing.css";
 import { rdb } from "../firebase/firebaseConfig.js";
 import { ref, get, update } from "firebase/database";
 
-export default function Dancing({ dance, danceTime }) {
+export default function Dancing({ dance, danceTime, onWebSocketClose }) {
   const [socket, setSocket] = useState(null);
   const integers = [0, 1, 2, 3, 1, 2, 0, 3, 1, 2, 3, 0, 1, 3, 0, 2, 1, 3];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -124,6 +124,9 @@ export default function Dancing({ dance, danceTime }) {
               socket.close();
               setSocket(null);
             }
+            setTimeout(() => {
+              onWebSocketClose();
+            }, 3000); // Delay of 5 seconds
             return 0;
           }
         });
