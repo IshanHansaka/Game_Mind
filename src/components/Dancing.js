@@ -205,7 +205,12 @@ export default function Dancing({ dance, danceTime, onWebSocketClose }) {
           </div>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer
+        style={{
+          width: "400px",
+          fontSize: "25px",
+        }}
+      />
     </div>
   );
 }
