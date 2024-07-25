@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/Dancing.css";
 import { rdb } from "../firebase/firebaseConfig.js";
 import { ref, get, update } from "firebase/database";
@@ -101,6 +103,7 @@ export default function Dancing({ dance, danceTime, onWebSocketClose }) {
       console.log("Sent: " + nextInteger);
       setCurrentIndex((currentIndex + 1) % integers.length);
     } else {
+      toast.error("WebSocket is not connected or countdown is not active");
       console.log("WebSocket is not connected or countdown is not active");
     }
   };
@@ -202,6 +205,7 @@ export default function Dancing({ dance, danceTime, onWebSocketClose }) {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
