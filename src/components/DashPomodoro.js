@@ -69,7 +69,12 @@ export default function DashPomodoro({ socket }) {
           </p>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer
+        style={{
+          width: "400px",
+          fontSize: "25px",
+        }}
+      />
     </>
   );
 }
