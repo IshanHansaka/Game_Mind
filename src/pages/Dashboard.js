@@ -7,8 +7,6 @@ import DashPomodoro from "../components/DashPomodoro.js";
 import DasboardStatus from "../components/DashboardStatus.js";
 import DashProgress from "../components/DashProgress.js";
 import Dancing from "../components/Dancing.js";
-import Memory from "../components/Memory.js";
-import Buzzwire from "../components/Buzzwire.js";
 
 export default function Dashboard() {
   const [currentComponent, setCurrentComponent] = useState("home");
@@ -37,16 +35,6 @@ export default function Dashboard() {
     setCurrentMenu("status");
   };
 
-  const handleMemoryClick = () => {
-    setCurrentComponent("memory");
-    setCurrentMenu("status");
-  };
-
-  const handleBuzzClick = () => {
-    setCurrentComponent("buzz");
-    setCurrentMenu("status");
-  };
-
   let RenderedComponent;
   if (currentComponent === "home") {
     RenderedComponent = (
@@ -54,8 +42,6 @@ export default function Dashboard() {
         onSettingsClick={handleSettingsClick}
         onStatsClick={handleStatsClick}
         onDanceClick={handleDanceClick}
-        onMemoryClick={handleMemoryClick}
-        onBuzzClick={handleBuzzClick}
       />
     );
   } else if (currentComponent === "pomodoro") {
@@ -71,10 +57,6 @@ export default function Dashboard() {
         onWebSocketClose={handleDashClick}
       />
     );
-  } else if (currentComponent === "memory") {
-    RenderedComponent = <Memory />;
-  } else if (currentComponent === "buzz") {
-    RenderedComponent = <Buzzwire />;
   }
 
   let RenderedMenu;

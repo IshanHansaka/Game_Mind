@@ -203,5 +203,8 @@
 
 .home-dashboard .game-tiles:hover {
   transform: scale(1.04);
+}
+
+.home-dashboard .dancing-game-tiles:hover {
   cursor: pointer;
 }
