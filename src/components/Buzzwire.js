@@ -34,7 +34,7 @@ export default function Memory() {
           <div className="mem-title">Highest Score</div>
         </div>
         <div className="mem-text-wrapper-3">
-          <p className="mem-highscore">{highScore}</p>
+          <p className="mem-highscore">{Math.round(highScore/1000)}</p>
         </div>
       </div>
     </div>
