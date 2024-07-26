@@ -6,7 +6,7 @@ import "../styles/Memory.css";
 export default function Memory() {
   const [highScore, setHighScore] = useState(0);
 
-  //get HighScore from RDB
+  // Get HighScore from RDB
   useEffect(() => {
     const fetchHighScore = async () => {
       const dbRef = ref(rdb, "highScore/");
