@@ -9,8 +9,6 @@ export default function DashboardHome({
   onSettingsClick,
   onStatsClick,
   onDanceClick,
-  onMemoryClick,
-  onBuzzClick,
 }) {
   return (
     <>
@@ -44,17 +42,12 @@ export default function DashboardHome({
         <div className="text-wrapper-05">25 : 00</div>
         <div className="text-wrapper-06">Pomodoro Timer</div>
       </div>
-      <div
-        className="overlap-5 game-tiles"
-        role="button"
-        tabIndex={0}
-        onClick={onBuzzClick}
-      >
+      <div className="overlap-5 game-tiles">
         <div className="text-wrapper-07">Buzzwire Game</div>
         <img className="ram-memory" alt="Ram memory" src={Buzzwire} />
       </div>
       <div
-        className="overlap-6 game-tiles"
+        className="overlap-6 game-tiles dancing-game-tiles"
         role="button"
         tabIndex={0}
         onClick={onDanceClick}
@@ -62,12 +55,7 @@ export default function DashboardHome({
         <div className="text-wrapper-07">Dancing Game</div>
         <img className="grade" alt="Grade" src={Dancingpad} />
       </div>
-      <div
-        className="overlap-7 game-tiles"
-        role="button"
-        tabIndex={0}
-        onClick={onMemoryClick}
-      >
+      <div className="overlap-7 game-tiles">
         <div className="text-wrapper-07">Memory Game</div>
         <img className="element-f" alt="Element f" src={Memorygame} />
       </div>
