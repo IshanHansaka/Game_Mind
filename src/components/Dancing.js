@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/Dancing.css";
 import { rdb } from "../firebase/firebaseConfig.js";
 import { ref, get, update } from "firebase/database";
 
-export default function Dancing({ dance, danceTime, onWebSocketClose }) {
+export default function Dancing({
+  dance,
+  setDance,
+  danceTime,
+  onWebSocketClose,
+}) {
   const [socket, setSocket] = useState(null);
   const integers = [0, 1, 2, 3, 1, 2, 0, 3, 1, 2, 3, 0, 1, 3, 0, 2, 1, 3];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,6 +18,7 @@ export default function Dancing({ dance, danceTime, onWebSocketClose }) {
   const [currentMessage, setCurrentMessage] = useState(null);
   const [currentScore, setCurrentScore] = useState(0);
   const seconds = Math.floor(danceTime / 1000);
+  const [remainingTime, setRemainingTime] = useState(seconds);
   const [currentTime, setCurrentTime] = useState(seconds);
   const [isCountdown, setIsCountdown] = useState(false);
   const [highScore, setHighScore] = useState(0);
@@ -101,13 +109,32 @@ export default function Dancing({ dance, danceTime, onWebSocketClose }) {
       console.log("Sent: " + nextInteger);
       setCurrentIndex((currentIndex + 1) % integers.length);
     } else {
+      toast.error("WebSocket is not connected or countdown is not active");
       console.log("WebSocket is not connected or countdown is not active");
     }
   };
 
+  useEffect(() => {
+    if (dance) {
+      const timer = setInterval(() => {
+        setRemainingTime((prevTime) => {
+          if (prevTime > 0 && !isCountdown) {
+            return prevTime - 1;
+          } else {
+            clearInterval(timer);
+            return 0;
+          }
+        });
+      }, 1000);
+
+      return () => clearInterval(timer); // Clear interval on unmount
+    }
+  }, [isCountdown]);
+
   // Countdown
   const startCountdown = () => {
     if (!isCountdown) {
+      setCurrentTime(remainingTime);
       setIsCountdown(true);
       const newAudio = new Audio("/song.mp3");
       newAudio.play();
@@ -124,13 +151,16 @@ export default function Dancing({ dance, danceTime, onWebSocketClose }) {
               socket.close();
               setSocket(null);
             }
+            setDance(false);
             setTimeout(() => {
               onWebSocketClose();
-            }, 3000); // Delay of 5 seconds
+            }, 3000); // Delay of 3 seconds
             return 0;
           }
         });
       }, 1000);
+
+      return () => clearInterval(timer); // Clear interval on unmount
     }
   };
 
@@ -202,6 +232,12 @@ export default function Dancing({ dance, danceTime, onWebSocketClose }) {
           </div>
         </div>
       </div>
+      <ToastContainer
+        style={{
+          width: "400px",
+          fontSize: "25px",
+        }}
+      />
     </div>
   );
 }

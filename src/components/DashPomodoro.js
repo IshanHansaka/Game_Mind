@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/DashPomodoro.css";
 import Down from "../assets/images/down 1.png";
 import Up from "../assets/images/up 1.png";
@@ -22,6 +24,7 @@ export default function DashPomodoro({ socket }) {
       socket.send(currentSession.toString());
       console.log("Sent: " + currentSession);
     } else {
+      toast.error("WebSocket is not connected");
       console.log("WebSocket is not connected");
     }
   };
@@ -66,6 +69,12 @@ export default function DashPomodoro({ socket }) {
           </p>
         </div>
       </div>
+      <ToastContainer
+        style={{
+          width: "400px",
+          fontSize: "25px",
+        }}
+      />
     </>
   );
 }

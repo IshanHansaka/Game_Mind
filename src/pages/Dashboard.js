@@ -66,6 +66,7 @@ export default function Dashboard() {
     RenderedComponent = (
       <Dancing
         dance={dance}
+        setDance={setDance}
         danceTime={danceTime}
         onWebSocketClose={handleDashClick}
       />
