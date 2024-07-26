@@ -78,6 +78,7 @@ export default function ProgressChartArea() {
           dataKey="Succesful_Sessions"
           stroke="#2563eb"
           fill="#304674"
+          dot={{ fill: "#000000", stroke: "#2563eb", strokeWidth: 2, r: 4 }}
         />
       </AreaChart>
     </>
