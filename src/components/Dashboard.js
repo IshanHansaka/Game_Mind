@@ -1,13 +1,7 @@
 import React from "react";
 import "../styles/Dashboard.css";
 import DashboardNavbar from "./DashboardNavbar";
-import DashboardMenu from "./DashboardMenu";
-import DashboardHome from "./DashboardHome";
 import DashboardStatus from "./DashboardStatus";
-import DashPomodoro from "./DashPomodoro.js";
-import DashProgress from "./DashProgress.js";
-import Dancing from "./Dancing.js";
-import Memory from "./Memory.js";
 import Buzziwre from "./Buzzwire.js";
 
 export default function Dashboard() {
