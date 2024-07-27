@@ -58,7 +58,7 @@ export default function ProgressChartArea() {
         data={aggregatedSessions}
         width={1100}
         height={600}
-        margin={{right: 50}}
+        margin={{ right: 50 }}
       >
         <XAxis
           dataKey="date"
