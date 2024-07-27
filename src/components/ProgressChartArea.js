@@ -21,7 +21,7 @@ export default function ProgressChartArea() {
         const snapshot = await getDocs(collectionRef);
         const data = snapshot.docs.map((doc) => ({
           ...doc.data(),
-          Succesful_Sessions: parseInt(doc.data().Succesful_Sessions, 10), // Ensure Succesful_Sessions is a number
+          numDetections: parseInt(doc.data().numDetections, 10), // Ensure numDetections is a number
         }));
         setSessions(data);
       } catch (err) {
@@ -37,9 +37,9 @@ export default function ProgressChartArea() {
       const aggregated = sessions.reduce((acc, session) => {
         const date = session.date;
         if (!acc[date]) {
-          acc[date] = { date, Succesful_Sessions: 0 };
+          acc[date] = { date, numDetections: 0 };
         }
-        acc[date].Succesful_Sessions += session.Succesful_Sessions;
+        acc[date].numDetections += session.numDetections;
         return acc;
       }, {});
 
@@ -75,7 +75,7 @@ export default function ProgressChartArea() {
         <Legend wrapperStyle={{ fontSize: "26px" }} />
         <Area
           type="monotone"
-          dataKey="Succesful_Sessions"
+          dataKey="numDetections"
           stroke="#2563eb"
           fill="#304674"
           dot={{ fill: "#000000", stroke: "#2563eb", strokeWidth: 2, r: 4 }}
