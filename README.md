@@ -30,3 +30,6 @@ This project aims to enhance student well-being, productivity, and the overall l
 
 ## 📷 Screenshots
 Here are some screenshots of the application:
+![Dashboard Screenshot](src/assets/screenshots/Dashboard.jpg)
+![Dancing Pad Game Screenshot](src/assets/screenshots/Dancingpadgame.jpg)
+![Dancing Game Screenshot](src/assets/screenshots/Dashboard.png)
