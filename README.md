@@ -29,7 +29,14 @@ This project aims to enhance student well-being, productivity, and the overall l
   - **Mind Game & Buzz Wire Game**: Tracks and stores high scores for these games in the Firebase Realtime Database, with preview features available.
 
 ## 📷 Screenshots
-Here are some screenshots of the application:
+Here are some screenshots of the application,
+### Dashboard:
 ![Dashboard Screenshot](src/assets/screenshots/Dashboard.jpg)
-![Dancing Pad Game Screenshot](src/assets/screenshots/Dancingpadgame.jpg)
-![Dancing Game Screenshot](src/assets/screenshots/Dashboard.png)
+### Dancing Pad Game:
+![Dancing Pad Game Screenshot](src/assets/screenshots/DancingpadGame.jpg)
+### Pomodoro Timer:
+![Pomodoro Timer Screenshot](src/assets/screenshots/PomodoroTimer.jpg)
+### Progress Monitoring:
+![Progress Monitoring Screenshot](src/assets/screenshots/ProgressMonitoring.jpg)
+### Login Page:
+![Login Page Screenshot](src/assets/screenshots/LoginPage.jpg)
