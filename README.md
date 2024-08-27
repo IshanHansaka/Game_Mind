@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Interactive Learning Assistance System Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React.js web application complements a microcontroller-based project designed to help students maintain focus and manage stress through the Pomodoro technique, presence detection, and interactive games.
 
-## Available Scripts
+## 🎯 Project Objective
 
-In the project directory, you can run:
+This project aims to enhance student well-being, productivity, and the overall learning experience by integrating microcontroller technology with structured study intervals, presence detection, and interactive games. The system is built to improve time management and provide refreshing breaks during study sessions.
 
-### `npm start`
+## 🎯 Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Pomodoro Integration**: The application includes a countdown timer for structured study intervals and breaks, promoting better time management and productivity.
+  
+- **Presence Detection Technology**: The system monitors student engagement and automatically pauses the timer when the student is away, ensuring accurate tracking of study sessions.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Interactive Games**: During breaks, the application provides games like a dancing game, buzz wire game, and memory game to offer mental stimulation and physical activity.
 
-### `npm test`
+- **User-Friendly Web Application**: The application offers personalized feedback, tracks achievements, and facilitates self-assessment, making it easier for students to track their progress and stay motivated.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🎮 Web Application Features
 
-### `npm run build`
+- **Dashboard**: A user-friendly dashboard that provides an overview of the system's functionality and access to various features.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Session Management**: Allows users to set the desired number of study sessions, which are then sent to the ESP32 via WebSocket.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Session Progress Visualization**: The successful session count is visualized using an AreaChart, with data retrieved from Firebase Firestore.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Real-Time Gaming Features**: 
+  - **Dancing Game**: Displays arrows during the game and sends real-time data through WebSocket. It processes and stores the high score in Firebase Realtime Database.
+  - **Mind Game & Buzz Wire Game**: Tracks and stores high scores for these games in the Firebase Realtime Database, with preview features available.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📷 Screenshots
+Here are some screenshots of the application:
